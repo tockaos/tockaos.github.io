@@ -870,65 +870,65 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #aaa;
 }
     </style>
-  </head><h1 id="gw"><strong>GW</strong></h1>
 
-  <body>
+  <body><h1 id="códigos-e-mais-códigos"><strong>Códigos e mais Códigos</strong></h1>
 
-<p><img src="http://media.wizards.com/2015/images/daily/cardart_RDMheBquDC.jpg" alt="enter image description here" title=""></p>
+<p><img src="http://imagens.canaltech.com.br/13474.25535-Hacker.jpg" alt="Alt text" title=""></p>
 
-<h3 id="deck"><strong>Deck</strong></h3>
-
-<p><strong>Creatures</strong></p>
-
-<ul>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=393434">Warden of the first tree</a></li>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396645">Deathmist Raptor</a></li>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396647">Den Protector</a></li>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=400788">Hangarback Walker</a></li>
-<li>3 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=400654">Nissa, vastwood seer</a></li>
-<li>3 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=388878">Wingmate Roc</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396709">Hidden Dragonslayer</a></li>
-</ul>
-
-<p><strong>PlanesWalkers</strong></p>
-
-<ul>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=404289">Gideon, ally of Zendikar</a></li>
-</ul>
-
-<p><strong>Spells</strong></p>
-
-<ul>
-<li>4 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396670">Dromoka’s Command</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396811">Silkwrap</a></li>
-<li>1 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=393430">Valorous Stance</a></li>
-</ul>
-
-<p><strong>Lands</strong></p>
-
-<h3 id="sideboard"><strong>SideBoard</strong></h3>
-
-<ul>
-<li>1 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=400789">Evolutionary Leap</a></li>
-<li>1 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=388878">Wingmate Roc</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396659">Dragonlord Dromoka</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=396832">Surge of Righteousness</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=388876">Windstorm</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=393442">Winds of qal sisma</a></li>
-<li>2 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=393430">Valorous Stance</a></li>
-<li>3 <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=393271">Arashin Cleric</a></li>
-</ul>
+<h2 id="seletor-de-scroll"><strong>Seletor de Scroll</strong></h2>
 
 
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TFZQPG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TFZQPG');</script>
-<!-- End Google Tag Manager -->
 
-</body>
-</html>
+<pre class="prettyprint"><code class="language-js hljs "><span class="hljs-comment">//seletor de scroll</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+<span class="hljs-pi">    'use strict'</span>;
+
+    <span class="hljs-keyword">var</span> elemento = $(<span class="hljs-string">'#banner-secondary'</span>);
+    <span class="hljs-keyword">var</span> $window  = $(window);
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span><span class="hljs-params">()</span>{</span>
+        <span class="hljs-keyword">if</span>( window.scrollY &gt;= elemento.offset().top ) {
+            console.log(<span class="hljs-string">'Foi porra!'</span>);
+            $window.off(<span class="hljs-string">'scroll'</span>, handler);
+        }
+    }
+
+    $window.on(<span class="hljs-string">'scroll'</span>, handler);
+}());
+</code></pre>
+
+<h2 id="código-de-ecommerce-básico-ga"><strong>Código de Ecommerce Básico GA</strong></h2>
+
+
+
+<pre class="prettyprint"><code class=" hljs scss"><span class="hljs-comment">//Código de ecommerce</span>
+{
+
+<span class="hljs-comment">//no default</span>
+<span class="hljs-function">ga(<span class="hljs-string">'require'</span>,<span class="hljs-string">'ecommerce'</span>)</span>;
+
+<span class="hljs-comment">//no código</span>
+    <span class="hljs-function">ga(<span class="hljs-string">'ecommerce:addTransaction'</span>, {
+      <span class="hljs-string">'id'</span>: <span class="hljs-string">'1234'</span>,
+      <span class="hljs-string">'affiliation'</span>: <span class="hljs-string">'Acme Clothing'</span>,
+      <span class="hljs-string">'revenue'</span>: <span class="hljs-string">'11.99'</span>,
+      <span class="hljs-string">'shipping'</span>: <span class="hljs-string">'5'</span>,
+      <span class="hljs-string">'tax'</span>: <span class="hljs-string">'1.29'</span>,
+      <span class="hljs-string">'currency'</span>: <span class="hljs-string">'EUR'</span>  // local currency code.
+    })</span>;
+
+      <span class="hljs-function">ga(<span class="hljs-string">'ecommerce:addItem'</span>, {
+        <span class="hljs-string">'id'</span>: <span class="hljs-string">'1234'</span>,
+        <span class="hljs-string">'name'</span>: <span class="hljs-string">'Fluffy Pink Bunnies'</span>,
+        <span class="hljs-string">'sku'</span>: <span class="hljs-string">'DD23444'</span>,
+        <span class="hljs-string">'category'</span>: <span class="hljs-string">'Party Toys'</span>,
+        <span class="hljs-string">'price'</span>: <span class="hljs-string">'11.99'</span>,
+        <span class="hljs-string">'quantity'</span>: <span class="hljs-string">'1'</span>,
+        <span class="hljs-string">'currency'</span>: <span class="hljs-string">'GBP'</span> // local currency code.
+      })</span>;
+
+
+     <span class="hljs-function">ga(<span class="hljs-string">'send:ecommerce'</span>)</span>;
+
+ }
+</code></pre>

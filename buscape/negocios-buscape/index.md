@@ -26,7 +26,7 @@ Primeiramente, temos que identificar todos os possíveis acessos ao formulário 
 
 Dependendo da campanha aplicada, teremos vídeos educativos explicando como funciona os processos ou mesmo gifs animados para entreter o usuário. E precisamos taguea-los:
 
-![enter image description here](http://tockaos.github.io/buscape/negocios-buscape/img/video.jpg)
+![enter image description here](http://tockaos.github.io/buscape/negocios-buscape/img/video1.jpg)
 
 ###**Formulário**
 
@@ -40,5 +40,11 @@ A importância do newsletter é saber se o cliente quer engajar ainda mais com a
 O Submit também como um todo, assim saberemos quando teremos erro ao usuário apertar esse botão e quando teremos sucesso, gerando assim o principal KPI.
 
 ![enter image description here](http://tockaos.github.io/buscape/negocios-buscape/img/submit.jpg)
+
+###**Login**
+
+Para esse item precisamos ter uma implementação técnica, sendo passada informações do back-end, quando o usuário se logou ou se cadastrou. Mas é bom termos esse tipo de informação também.
+
+![enter image description here](http://tockaos.github.io/buscape/negocios-buscape/img/login.jpg)
 
 ----------

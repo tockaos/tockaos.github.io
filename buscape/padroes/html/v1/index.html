@@ -1,0 +1,262 @@
+<p><img src="http://image.buscape.com/material/buscape.png" alt="enter image description here" title=""></p>
+
+
+
+<h1 id="google-analytics"><strong>Google Analytics</strong></h1>
+
+<hr>
+
+<h2 id="padronização-de-html"><strong>Padronização de HTML</strong></h2>
+
+
+
+<h3 id="objetivo"><strong>Objetivo</strong></h3>
+
+<p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong>. Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics). </p>
+
+<h3 id="datalayer"><strong>dataLayer</strong></h3>
+
+<p>dataLayer é uma variável global criada dentro do GTM. Ela é a camada de dados que usaremos para obter as informações de cada página, produto, listas, etc <br>
+Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou interações para camada de dados. Ex:</p>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'sucesso'</span>, <span class="hljs-string">'tipo-sucesso'</span>:<span class="hljs-string">'transacao'</span>});</code></pre>
+
+<p>Esse disparo acima, seria enviado quando o usuário chegasse a tela de Transação efetuada. O GTM receberia esse evento e dispararia dados para o GA informando que a transação foi efetuada.</p>
+
+<hr>
+
+<h3 id="banners"><strong>Banners</strong></h3>
+
+<p>Adicionar em todos os banners os seguintes atributos:</p>
+
+
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">img</span> 
+<span class="hljs-attribute">data-gtm-type</span>=<span class="hljs-value">banner</span>
+<span class="hljs-attribute">data-gtm-category</span>=<span class="hljs-value">[local-do-banner]</span>
+<span class="hljs-attribute">data-gtm-action</span>=<span class="hljs-value">banner:[nome-do-banner]</span>
+<span class="hljs-attribute">data-gtm-label</span>=<span class="hljs-value">[url-do-banner]</span>
+&lt;/<span class="hljs-attribute">img</span>&gt;</span></code></pre>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'banner'</span>, <span class="hljs-string">'local-banner'</span>:<span class="hljs-string">'home'</span>, <span class="hljs-string">'posicao-banner'</span>, <span class="hljs-string">'topo-esquerda'</span>,<span class="hljs-string">'nome-banner'</span>:<span class="hljs-string">'dia-dos-pais'</span>,<span class="hljs-string">'url-banner'</span>:<span class="hljs-string">'http://www.buscape.com.br/geladeira-refrigerador'</span>});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>event</td>
+  <td>string</td>
+  <td>banner</td>
+</tr>
+<tr>
+  <td>lobal-banner</td>
+  <td>string</td>
+  <td>home, p.u, categoria</td>
+</tr>
+<tr>
+  <td>posicao-banner</td>
+  <td>string</td>
+  <td>topo-esquerda, meio-esquerda, rodape-direita</td>
+</tr>
+<tr>
+  <td>url-banner</td>
+  <td>string</td>
+  <td><a href="http://www.buscape.com.br/geladeira-refrigerador">http://www.buscape.com.br/geladeira-refrigerador</a></td>
+</tr>
+</tbody></table>
+
+
+<h4 id="conclusão-da-implementação-do-atributos-html-dos-banners"><strong>Conclusão da implementação do atributos HTML dos banners</strong></h4>
+
+<p>Com a implementação desses atributos, quando subir o banner, teremos automaticamente os dados indo para o GA. Assim podemos ver qual campanha de  qual página está trazendo mais interesse(menor bounce rate, maior tempo de visualização da página, etc.)</p>
+
+<p><img src="http://tockaos.github.io/buscape/padroes/html/img/banner.jpg" alt="enter image description here" title=""></p>
+
+<hr>
+
+<h3 id="botões"><strong>Botões</strong></h3>
+
+<p>Adicionar os seguintes disparos aos botoes:</p>
+
+
+
+<h4 id="ir-a-loja"><strong>Ir a Loja</strong></h4>
+
+<p>No momento do clique do usuário em clique Ir a loja em <strong>qualquer lugar do site</strong>, deve-se disparar:</p>
+
+<p><img src="http://tockaos.github.io/buscape/padroes/html/img/ir-a-loja.jpg" alt="Ir a Loja" title=""></p>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>, <span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'ir-a-loja'</span>, <span class="hljs-string">'id-oferta'</span>, <span class="hljs-string">'123456'</span>});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>event</td>
+  <td>string</td>
+  <td>botao</td>
+</tr>
+<tr>
+  <td>tipo-botao</td>
+  <td>string</td>
+  <td>ir-a-loja</td>
+</tr>
+<tr>
+  <td>id-oferta</td>
+  <td>string</td>
+  <td>123456</td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>Quando tivermos esse disparo e a camada de dados de lista, podemos cruzar o ID Oferta passado com todos os outros disparos, iremos ter:</p>
+</blockquote>
+
+<ul>
+<li>Produtos mais clicados</li>
+<li>Categorias mais clicadas (Se a categoria estiver sendo passada nas listas) </li>
+<li>Lojistas mais clicados (Se o lojista estiver sendo passada nas listas)</li>
+</ul>
+
+<h4 id="compre-aqui"><strong>Compre Aqui</strong></h4>
+
+<p>No momento do clique do usuário em compre aqui em <strong>qualquer lugar do site</strong>, deve-se disparar:</p>
+
+<p><img src="http://tockaos.github.io/buscape/padroes/html/img/compre-aqui.jpg" alt="Compre Aqui" title=""></p>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>, <span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'compre-aqui'</span>, <span class="hljs-string">'id-oferta'</span>, <span class="hljs-string">'123456'</span>});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>event</td>
+  <td>string</td>
+  <td>botao</td>
+</tr>
+<tr>
+  <td>tipo-botao</td>
+  <td>string</td>
+  <td>compre-aqui</td>
+</tr>
+<tr>
+  <td>id-oferta</td>
+  <td>string</td>
+  <td>123456</td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>Quando tivermos esse disparo e a camada de dados de lista, podemos cruzar o ID Oferta passado com todos os outros disparos, iremos ter:</p>
+</blockquote>
+
+<ul>
+<li>Produtos mais clicados</li>
+<li>Categorias mais clicadas (Se a categoria estiver sendo passada nas listas) </li>
+<li>Lojistas mais clicados (Se o lojista estiver sendo passada nas listas)</li>
+</ul>
+
+<h4 id="comprar"><strong>Comprar</strong></h4>
+
+<p>No momento do clique do usuário em comprar aqui em <strong>qualquer página de oferta</strong>, deve-se disparar:</p>
+
+<p><img src="http://tockaos.github.io/buscape/padroes/html/img/comprar.jpg" alt="Comprar" title=""></p>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>, <span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'comprar'</span>, <span class="hljs-string">'id-oferta'</span>:<span class="hljs-string">'123456'</span>});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>event</td>
+  <td>string</td>
+  <td>botao</td>
+</tr>
+<tr>
+  <td>tipo-botao</td>
+  <td>string</td>
+  <td>comprar</td>
+</tr>
+<tr>
+  <td>id-oferta</td>
+  <td>string</td>
+  <td>123456</td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>Quando tivermos esse disparo e a camada de dados de lista, podemos cruzar o SKU passado o disparo com todos os outros disparos, ou seja, iremos ter:</p>
+</blockquote>
+
+<ul>
+<li>Produtos mais clicados</li>
+<li>Categorias mais clicadas (Se a categoria estiver sendo passada nas listas) </li>
+<li>Lojistas mais clicados (Se o lojista estiver sendo passada nas listas)</li>
+</ul>
+
+<h4 id="conclusão-de-implementação-do-disparo-de-sucesso-de-clique-dos-botões-ir-a-loja-compre-aqui-e-comprar"><strong>Conclusão de implementação do disparo de sucesso de clique dos botões Ir a Loja, Compre-aqui e Comprar</strong></h4>
+
+<p>Com esses disparos implementados, teremos um inicio de funil de pessoas que clicaram em determinado produto, qual a marca que as pessoas mais clicam e param na 2 página por exemplo, ou a categoria que mais passa, ou o lojista que menos é clicado, entre outros.</p>
+
+<p>OBS:</p>
+
+<ul>
+<li>Teremos esses dados se o dataLayer de lista for implementado</li>
+</ul>
+
+<hr>
+
+<h3 id="login"><strong>Login</strong></h3>
+
+<p>Adicionar os seguintes disparos quando o usuário se logar:</p>
+
+
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'sucesso'</span>, <span class="hljs-string">'tipo-sucesso'</span>:<span class="hljs-string">'login'</span>, <span class="hljs-string">'tipo-login'</span>:<span class="hljs-string">'facebook'</span>});
+</code></pre>
+
+
+
+<h3 id="cadastro"><strong>Cadastro</strong></h3>
+
+<p>Adicionar os seguintes disparos quando o usuário se cadastrar:</p>
+
+
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'sucesso'</span>, <span class="hljs-string">'tipo-sucesso'</span>:<span class="hljs-string">'cadastro'</span>});
+</code></pre>
+
+
+
+<h4 id="conclusão-implementação-de-disparo-de-sucesso-de-login-e-cadastro"><strong>Conclusão implementação de disparo de sucesso de Login e Cadastro</strong></h4>
+
+<p>Com os disparos de sucesso de login e cadastro, poderemos acompanhar o fluxo do usuário e saber mais sobre ele. Devemos passar na camada a <strong>idade, o sexo, o estado</strong>, etc, para fazer listas de remarketing segmentadas:</p>
+
+<p><strong>Ex:  Produto tal é mais visto por pessoas do sexo masculino de 20-30 anos</strong></p>

@@ -50,9 +50,7 @@ dataLayer = [{
 		'dispositivo'  : 'mobile'
 
 	},
-	'listas': {
-
-		'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_home',
 			'itens': [{
 				'nome':'produto C',
@@ -90,8 +88,8 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		},
-		'lista2':{	
+			},
+			{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -129,8 +127,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+		}],
 	'usuario': {
 		'id':'12345',
 		'tipo-login':'facebook',
@@ -156,8 +153,7 @@ dataLayer = [{
 		'dispositivo'  : 'mobile'
 
 	},
-	'listas': 
-		'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_home',
 			'itens': [{
 				'nome':'produto C',
@@ -196,7 +192,7 @@ dataLayer = [{
 				'posicao_oferta' : '2'
 			}]
 		},
-		'lista2':{	
+		{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -234,8 +230,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+	}],
 	'usuario': {
 		'id':'12345',
 		'tipo-login':'facebook',
@@ -288,7 +283,7 @@ dataLayer = [{
 		'dispositivo'  : 'mobile'
 
 	},
-	'listas': 'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_pu',
 			'itens': [{
 				'nome':'produto C',
@@ -327,7 +322,7 @@ dataLayer = [{
 				'posicao_oferta' : '2'
 			}]
 		},
-		'lista2':{	
+		{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -365,8 +360,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+	}],
 	'produto' : {
 		'nome':'produto A',
 		'departamento':'telefonia',
@@ -483,7 +477,7 @@ dataLayer = [{
 		'dispositivo'  : 'mobile'
 
 	},
-	'listas': 'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_oferta',
 			'itens': [{
 				'nome':'produto C',
@@ -522,7 +516,7 @@ dataLayer = [{
 				'posicao_oferta' : '2'
 			}]
 		},
-		'lista2':{	
+		{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -560,8 +554,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+	}],
 	'produto' : {
 		'nome':'produto A',
 		'departamento':'',
@@ -652,7 +645,7 @@ dataLayer = [{
 		'departamento' : 'telefonia',
 		'categoria' : 'celular_e_smartphone',
 	},
-	'listas': 'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_categoria',
 			'itens': [{
 				'nome':'produto C',
@@ -691,7 +684,7 @@ dataLayer = [{
 				'posicao_oferta' : '2'
 			}]
 		},
-		'lista2':{	
+		{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -729,8 +722,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+	}],
 	'usuario': {
 		'id':'12345',
 		'tipo_login':'facebook',
@@ -790,7 +782,7 @@ dataLayer = [{
 		'termo_buscado' : 'celular',
 		'quantidade_resultados' : '1231'
 	},	
-	'listas': 'lista1':{
+	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_categoria',
 			'itens': [{
 				'nome':'produto C',
@@ -829,7 +821,7 @@ dataLayer = [{
 				'posicao_oferta' : '2'
 			}]
 		},
-		'lista2':{	
+		{	
 			'nome_lista':'buscape_para_voce',
 			'itens': [{
 				'nome':'produto C',
@@ -867,8 +859,7 @@ dataLayer = [{
 				'nome_promocao' : '',
 				'posicao_oferta' : '2'
 			}]
-		}
-	},
+	}],
 	'usuario': {
 		'id':'12345',
 		'tipo_login':'facebook',

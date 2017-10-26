@@ -21,6 +21,12 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 
 Esse disparo acima, seria enviado quando o usuário chegasse a tela de Transação efetuada. O GTM receberia esse evento e dispararia dados para o GA informando que a transação foi efetuada.
 
+###**Observações**
+
+ - Todas as informações devem ser em caixa baixa e separadas por "_" Ex: este_exemplo.
+ - Para que os dados de disparos de clicks funcionem é necessário que seja implementada a camada de dados de lista.
+ - O disparo de impressões de Banners deve acontecer apenas na visualização do banner. Se o usuário sai do alcance do banner, não deve ser disparado mais.
+
 -------
 
 ###**Banners**

@@ -44,7 +44,8 @@ dataLayer = [{
 		'template': 'home',
 		'protocol': 'http:',
 		'referrer': 'www.uol.com.br',
-		'dispositivo'  : 'mobile'
+		'dispositivo'  : 'mobile',
+		'tipo' : 'dia_dos_pais_2017'
 	},
 	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_home',
@@ -147,7 +148,8 @@ dataLayer = [{
 		'template': 'home',
 		'protocol': 'http:',
 		'referrer': 'www.uol.com.br',
-		'dispositivo'  : 'mobile'
+		'dispositivo'  : 'mobile',
+		'tipo' : 'dia_dos_pais_2017'
 
 	},
 	'listas': [{
@@ -245,6 +247,7 @@ pagina.template	| string| Definição da Página|home
 pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
 listas| objeto | Objeto contendo itens|
 listas.lista1.nome_lista | objeto | Nome da Lista| lista_de_ofertas_da_home
 listas.lista1.itens | array | |Listas contendo informações de itens|
@@ -279,7 +282,8 @@ dataLayer = [{
 		'template': 'pu',
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
-		'dispositivo'  : 'mobile'
+		'dispositivo'  : 'mobile',
+		'tipo' : 'dia_dos_pais_2017'
 
 	},
 	'listas': [{
@@ -422,6 +426,7 @@ pagina.template	| string| Definição da Página|home
 pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
 listas| objeto | Objeto contendo itens|
 listas.lista1.nome | objeto | Nome da Lista| lista_de_ofertas_da_home
 listas.lista1.itens | array | |Listas contendo informações de itens|
@@ -475,7 +480,8 @@ dataLayer = [{
 		'template': 'oferta',
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
-		'dispositivo'  : 'mobile'
+		'dispositivo'  : 'mobile',
+		'tipo' : 'dia_dos_pais_2017'
 
 	},
 	'listas': [{
@@ -593,6 +599,7 @@ pagina.template	| string| Definição da Página|home
 pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
 listas| objeto | Objeto contendo itens|
 listas.lista1.nome | objeto | Nome da Lista| lista_de_ofertas_da_home
 listas.lista1.itens | array | |Listas contendo informações de itens|
@@ -646,7 +653,8 @@ dataLayer = [{
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
 		'departamento' : 'telefonia',
-		'categoria' : 'celular_e_smartphone',
+		'categoria' : 'celular_e_smartphone',,
+		'tipo' : 'dia_dos_pais_2017'
 	},
 	'listas': [{
 			'nome_lista':'lista_de_ofertas_da_categoria',
@@ -745,6 +753,7 @@ pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.departamento|string|Departamento |telefonia
 pagina.categoria|string|Categoria|celular_e_smartphone
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
 listas| objeto | Objeto contendo itens|
 listas.lista1.nome | objeto | Nome da Lista| lista_de_ofertas_da_home
 listas.lista1.itens | array | |Listas contendo informações de itens|
@@ -781,7 +790,8 @@ dataLayer = [{
 		'template': 'busca',
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
-		'dispositivo'  : 'mobile'
+		'dispositivo'  : 'mobile',
+		'tipo' : 'dia_dos_pais_2017'
 	},
 	'busca':{
 		'termo_buscado' : 'celular',
@@ -884,6 +894,7 @@ pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.departamento|string|Departamento |telefonia
 pagina.categoria|string|Categoria|celular_e_smartphone
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
 busca|objeto||
 busca.termo_buscado|string|O que foi procurado no campo de busca|celular
 busca.quantidade_resultados|string|Quantidade dos itens pesquisados| 12313

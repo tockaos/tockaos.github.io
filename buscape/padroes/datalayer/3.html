@@ -615,102 +615,103 @@ code {
 
 
 
-<pre class="prettyprint"><code class="language-html hljs ">window.dataLayer = window.dataLayer || [];
+<pre class="prettyprint"><code class="language-js hljs ">
+window.dataLayer = window.dataLayer || [];
+
 dataLayer = [{
-    'pagina': {
-        'template': 'home',
-        'protocol': 'http:',
-        'referrer': 'www.uol.com.br',
-        'dispositivo'  : 'mobile',
-        'tipo' : 'dia_dos_pais_2017'
+    <span class="hljs-string">'pagina'</span>: {
+        <span class="hljs-string">'template'</span>: <span class="hljs-string">'home'</span>,
+        <span class="hljs-string">'protocol'</span>: <span class="hljs-string">'http:'</span>,
+        <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>
+
     },
-    'listas': [{
-            'nome_lista':'lista_de_ofertas_da_home',
-            'itens': [{
-                'nome':'produto C',
-                'departamento':'telefonia',
-                'categoria':'celular_e_smartphone', 
-                'id_produto':'54321',
-                'id_oferta':'edcba',
-                'sku':'c3b2a1',
-                'preco':'35.00',
-                'preco_final':'28.00',
-                'marca':'apple',
-                'loja':'submarino',
-                'tem_review': true,
-                'qtd_review':'23',
-                'porcentagem_avaliacao':'95%',
-                'participa_promocao': true,
-                'nome_promocao' : 'submarino_day',
-                'posicao_oferta' : '1'
+    <span class="hljs-string">'listas'</span>: [{
+            <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>,
+            <span class="hljs-string">'itens'</span>: [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'1'</span>
             },
             {
-                'nome':'produto D',
-                'departamento':'telefonia',
-                'categoria':'celular_e_smartphone',
-                'id_produto':'54321',
-                'id_oferta':'edcba',
-                'sku':'c3b2a1',
-                'preco_real':'37.00',
-                'preco_final':'25.00',
-                'marca':'samsumg',
-                'loja':'fast_shop',
-                'tem_review': false,
-                'qtd_review':'0',
-                'porcentagem_avaliacao':'',
-                'participa_promocao': false,
-                'nome_promocao' : '',
-                'posicao_oferta' : '2'
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'2'</span>
             }]
             },
             {   
-            'nome_lista':'buscape_para_voce',
-            'itens': [{
-                'nome':'produto C',
-                'departamento':'telefonia',
-                'categoria':'celular_e_smartphone', 
-                'id_produto':'54321',
-                'id_oferta':'edcba',
-                'sku':'c3b2a1',
-                'preco':'35.00',
-                'preco_final':'28.00',
-                'marca':'apple',
-                'loja':'submarino',
-                'tem_review': true,
-                'qtd_review':'23',
-                'porcentagem_avaliacao':'95%',
-                'participa_promocao': true,
-                'nome_promocao' : 'submarino_day',
-                'posicao_oferta' : '1'
+            <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'buscape_para_voce'</span>,
+            <span class="hljs-string">'itens'</span>: [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'1'</span>
             },
             {
-                'nome':'produto D',
-                'departamento':'telefonia',
-                'categoria':'celular_e_smartphone',
-                'id_produto':'54321',
-                'id_oferta':'edcba',
-                'sku':'c3b2a1',
-                'preco_real':'37.00',
-                'preco_final':'25.00',
-                'marca':'samsumg',
-                'loja':'fast_shop',
-                'tem_review': false,
-                'qtd_review':'0',
-                'porcentagem_avaliacao':'',
-                'participa_promocao': false,
-                'nome_promocao' : '',
-                'posicao_oferta' : '2'
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'2'</span>
             }]
         }],
-    'usuario': {
-        'id':'12345',
-        'tipo_login':'facebook',
-        'idade':'26',
-        'sexo':'masculino',
-        'status':'logado'
+    <span class="hljs-string">'usuario'</span>: {
+        <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
+        <span class="hljs-string">'tipo-login'</span>:<span class="hljs-string">'facebook'</span>,
+        <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }]
-<span class="hljs-tag">&lt;<span class="hljs-title">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">iframe</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"//www.googletagmanager.com/ns.html?id=GTM-W7LVSD"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"display: none; visibility: hidden;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">iframe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(w,d,s,l,i)</span>{</span>w[l]=w[l]||[];w[l].push({<span class="hljs-string">'gtm.start'</span>:<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime(),event:<span class="hljs-string">'gtm.js'</span>});<span class="hljs-keyword">var</span> f=d.getElementsByTagName(s)[<span class="hljs-number">0</span>],j=d.createElement(s),dl=l!=<span class="hljs-string">'dataLayer'</span>?<span class="hljs-string">'&amp;amp;l='</span>+l:<span class="hljs-string">''</span>;j.async=<span class="hljs-literal">true</span>;j.src=<span class="hljs-string">'//www.googletagmanager.com/gtm.js?id='</span>+i+dl;f.parentNode.insertBefore(j,f);})(window,document,<span class="hljs-string">'script'</span>,<span class="hljs-string">'dataLayer'</span>,<span class="hljs-string">'GTM-W7LVSD'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+&lt;noscript&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">iframe</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"//www.googletagmanager.com/ns.html?id=GTM-W7LVSD"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"display: none; visibility: hidden;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">iframe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(w,d,s,l,i)</span>{</span>w[l]=w[l]||[];w[l].push({<span class="hljs-string">'gtm.start'</span>:<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime(),event:<span class="hljs-string">'gtm.js'</span>});<span class="hljs-keyword">var</span> f=d.getElementsByTagName(s)[<span class="hljs-number">0</span>],j=d.createElement(s),dl=l!=<span class="hljs-string">'dataLayer'</span>?<span class="hljs-string">'&amp;amp;l='</span>+l:<span class="hljs-string">''</span>;j.async=<span class="hljs-literal">true</span>;j.src=<span class="hljs-string">'//www.googletagmanager.com/gtm.js?id='</span>+i+dl;f.parentNode.insertBefore(j,f);})(window,document,<span class="hljs-string">'script'</span>,<span class="hljs-string">'dataLayer'</span>,<span class="hljs-string">'GTM-W7LVSD'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span></code></pre>
 
 <h3 id="aplicação"><strong>Aplicação</strong></h3>
 
@@ -727,8 +728,7 @@ dataLayer = [{
         <span class="hljs-string">'template'</span>: <span class="hljs-string">'home'</span>,
         <span class="hljs-string">'protocol'</span>: <span class="hljs-string">'http:'</span>,
         <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
-        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
-        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">'dia_dos_pais_2017'</span>
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>
 
     },
     <span class="hljs-string">'listas'</span>: [{
@@ -811,10 +811,9 @@ dataLayer = [{
     }],
     <span class="hljs-string">'usuario'</span>: {
         <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
-        <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
+        <span class="hljs-string">'tipo-login'</span>:<span class="hljs-string">'facebook'</span>,
         <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
-        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
-        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }]</code></pre>
 
@@ -856,12 +855,6 @@ dataLayer = [{
   <td>string</td>
   <td>Dispositivo de acesso</td>
   <td>mobile, desktop, tablet</td>
-</tr>
-<tr>
-  <td>pagina.tipo</td>
-  <td>string</td>
-  <td>Qual o tipo da página quando ela for especial.</td>
-  <td>dia_dos_pais_2017, dia_das_criancas</td>
 </tr>
 <tr>
   <td>listas</td>
@@ -1007,12 +1000,6 @@ dataLayer = [{
   <td>Sexo do usuário</td>
   <td>masculino ou feminino</td>
 </tr>
-<tr>
-  <td>usuario.status</td>
-  <td>string</td>
-  <td>Se está logado ou não</td>
-  <td>logado, nao_logado</td>
-</tr>
 </tbody></table>
 
 
@@ -1025,8 +1012,7 @@ dataLayer = [{
         <span class="hljs-string">'template'</span>: <span class="hljs-string">'pu'</span>,
         <span class="hljs-string">'protocolo'</span>: <span class="hljs-string">'http:'</span>,
         <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
-        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
-        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">'dia_dos_pais_2017'</span>
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>
 
     },
     <span class="hljs-string">'listas'</span>: [{
@@ -1153,8 +1139,7 @@ dataLayer = [{
         <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
         <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
         <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
-        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
-        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }] 
 
@@ -1198,12 +1183,6 @@ dataLayer = [{
   <td>string</td>
   <td>Dispositivo de acesso</td>
   <td>mobile, desktop, tablet</td>
-</tr>
-<tr>
-  <td>pagina.tipo</td>
-  <td>string</td>
-  <td>Qual o tipo da página quando ela for especial.</td>
-  <td>dia_dos_pais_2017, dia_das_criancas</td>
 </tr>
 <tr>
   <td>listas</td>
@@ -1457,12 +1436,6 @@ dataLayer = [{
   <td>Sexo do usuário</td>
   <td>masculino ou feminino</td>
 </tr>
-<tr>
-  <td>usuario.status</td>
-  <td>string</td>
-  <td>Se está logado ou não</td>
-  <td>logado, nao_logado</td>
-</tr>
 </tbody></table>
 
 
@@ -1475,8 +1448,7 @@ dataLayer = [{
         <span class="hljs-string">'template'</span>: <span class="hljs-string">'oferta'</span>,
         <span class="hljs-string">'protocolo'</span>: <span class="hljs-string">'http:'</span>,
         <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
-        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
-        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">'dia_dos_pais_2017'</span>
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>
 
     },
     <span class="hljs-string">'listas'</span>: [{
@@ -1579,8 +1551,7 @@ dataLayer = [{
         <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
         <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
         <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
-        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
-        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }]</code></pre>
 
@@ -1622,12 +1593,6 @@ dataLayer = [{
   <td>string</td>
   <td>Dispositivo de acesso</td>
   <td>mobile, desktop, tablet</td>
-</tr>
-<tr>
-  <td>pagina.tipo</td>
-  <td>string</td>
-  <td>Qual o tipo da página quando ela for especial.</td>
-  <td>dia_dos_pais_2017, dia_das_criancas</td>
 </tr>
 <tr>
   <td>listas</td>
@@ -1869,12 +1834,6 @@ dataLayer = [{
   <td>Sexo do usuário</td>
   <td>masculino ou feminino</td>
 </tr>
-<tr>
-  <td>usuario.status</td>
-  <td>string</td>
-  <td>Se está logado ou não</td>
-  <td>logado, nao_logado</td>
-</tr>
 </tbody></table>
 
 
@@ -1889,8 +1848,7 @@ dataLayer = [{
         <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
         <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
         <span class="hljs-string">'departamento'</span> : <span class="hljs-string">'telefonia'</span>,
-        <span class="hljs-string">'categoria'</span> : <span class="hljs-string">'celular_e_smartphone'</span>,,
-        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">'dia_dos_pais_2017'</span>
+        <span class="hljs-string">'categoria'</span> : <span class="hljs-string">'celular_e_smartphone'</span>,
     },
     <span class="hljs-string">'listas'</span>: [{
             <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_categoria'</span>,
@@ -1974,8 +1932,7 @@ dataLayer = [{
         <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
         <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
         <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
-        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
-        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }]
 </code></pre>
@@ -2030,12 +1987,6 @@ dataLayer = [{
   <td>string</td>
   <td>Categoria</td>
   <td>celular_e_smartphone</td>
-</tr>
-<tr>
-  <td>pagina.tipo</td>
-  <td>string</td>
-  <td>Qual o tipo da página quando ela for especial.</td>
-  <td>dia_dos_pais_2017, dia_das_criancas</td>
 </tr>
 <tr>
   <td>listas</td>
@@ -2181,12 +2132,6 @@ dataLayer = [{
   <td>Sexo do usuário</td>
   <td>masculino ou feminino</td>
 </tr>
-<tr>
-  <td>usuario.status</td>
-  <td>string</td>
-  <td>Se está logado ou não</td>
-  <td>logado, nao_logado</td>
-</tr>
 </tbody></table>
 
 
@@ -2199,8 +2144,7 @@ dataLayer = [{
         <span class="hljs-string">'template'</span>: <span class="hljs-string">'busca'</span>,
         <span class="hljs-string">'protocolo'</span>: <span class="hljs-string">'http:'</span>,
         <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
-        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
-        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">'dia_dos_pais_2017'</span>
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>
     },
     <span class="hljs-string">'busca'</span>:{
         <span class="hljs-string">'termo_buscado'</span> : <span class="hljs-string">'celular'</span>,
@@ -2288,8 +2232,7 @@ dataLayer = [{
         <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
         <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
         <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
-        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
-        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>
     }
 }]
 </code></pre>
@@ -2344,12 +2287,6 @@ dataLayer = [{
   <td>string</td>
   <td>Categoria</td>
   <td>celular_e_smartphone</td>
-</tr>
-<tr>
-  <td>pagina.tipo</td>
-  <td>string</td>
-  <td>Qual o tipo da página quando ela for especial.</td>
-  <td>dia_dos_pais_2017, dia_das_criancas</td>
 </tr>
 <tr>
   <td>busca</td>
@@ -2512,11 +2449,5 @@ dataLayer = [{
   <td>string</td>
   <td>Sexo do usuário</td>
   <td>masculino ou feminino</td>
-</tr>
-<tr>
-  <td>usuario.status</td>
-  <td>string</td>
-  <td>Se está logado ou não</td>
-  <td>logado, nao_logado</td>
 </tr>
 </tbody></table>

@@ -14,6 +14,8 @@
 	- [Oferta](#oferta)
 	- [Categoria](#categoria)
 	- [Busca](#busca)
+	- [Checkout](#checkout)
+	- [Checkout - Conclusão](#checkout-conclusão)
 
 
 
@@ -917,6 +919,237 @@ listas.lista1.itens.porcentagem_avaliacao|string| Porcentagem de avaliação . S
 listas.lista1.itens.participa_promocao|boolean| Verificação se o produto participa ou não de uma promoção | true
 listas.lista1.itens.nome_promocao|string| Nome da Promoção que o produto participa. Se não houver participação é passado em branco |submarino_day
 listas.lista1.itens.posicao_item|string| Posição que a oferta aparece. Se a lista for reordenada, a posição terá que seguir a ordernação. | 3
+usuario|objeto|Objeto contendo informações do usuário|
+usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
+usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email
+usuario.idade| string | Idade do usuário | 26
+usuario.sexo | string | Sexo do usuário | masculino ou feminino
+usuario.status|string| Se está logado ou não| logado, nao_logado
+
+
+#### **Checkout**
+
+**ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.**
+
+```js
+ dataLayer.push({
+    'event': 'buscapeCheckout',
+	'pagina': {
+		'template': 'checkout',
+		'protocolo': 'http:',
+		'referrer': 'www.uol.com.br',
+		'dispositivo'  : 'mobile',
+		'tipo' : ''
+	},
+	'checkout':{
+		'step' : '5',
+		'nome' : 'conclusao',
+		'transacao':{
+				'id':'123131',
+				'total':'123.23',
+				'desconto':'12.00',
+				'taxa':'01.00',
+				'taxa_entrega':'05.00',
+				'cupom':'sale',
+		},
+		'produtos' : [{
+				'nome':'produto C',
+				'departamento':'telefonia',
+				'categoria':'celular_e_smartphone',	
+				'id_produto':'54321',
+				'id_oferta':'edcba',
+				'sku':'c3b2a1',
+				'preco':'35.00',
+				'preco_final':'28.00',
+				'marca':'apple',
+				'loja':'submarino',
+				'tem_review': true,
+				'qtd_review':'23',
+				'porcentagem_avaliacao':'95%',
+				'participa_promocao': true,
+				'nome_promocao' : 'submarino_day',
+				'quantidade' : '1'
+			},
+			{
+				'nome':'produto D',
+				'departamento':'telefonia',
+				'categoria':'celular_e_smartphone',
+				'id_produto':'54321',
+				'id_oferta':'edcba',
+				'sku':'c3b2a1',
+				'preco_real':'37.00',
+				'preco_final':'25.00',
+				'marca':'samsumg',
+				'loja':'fast_shop',
+				'tem_review': false,
+				'qtd_review':'0',
+				'porcentagem_avaliacao':'',
+				'participa_promocao': false,
+				'nome_promocao' : '',
+				'quantidade':'2'
+			}]
+	},	
+	'usuario': {
+		'id':'12345',
+		'tipo_login':'facebook',
+		'idade':'26',
+		'sexo':'masculino',
+		'status':'logado'
+	}
+});
+
+```
+
+Chave| Tipo de valor|Descrição |Exemplo
+-------- | --- | ---
+pagina		| objeto| |
+pagina.template	| string| Definição da Página|home
+pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
+pagina.referrer| string | referral do acesso|www.uol.com.br
+pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.departamento|string|Departamento |telefonia
+pagina.categoria|string|Categoria|celular_e_smartphone
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+checkout| objeto | Objeto contendo informações do checkout|
+checkout.nome | string | nome do passo do checkout| autenticacao, entrega, pagamento, conclusao, completar_cadastro
+checkout.step | string | número do passo do checkout| 1, 2,3,4,5
+checkout.produtos | array | |Listas contendo informações de dos produtos no checkout|
+checkout.produtos.nome|string|Nome do produto | produto_a
+checkout.produtos.departamento|string|Nome do Departamento do Produto | telefonia
+checkout.produtos.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
+checkout.produtos.id_produto|string| número de identificação do produto | 12345
+checkout.produtos.id_oferta|string| Número da identificação da oferta | 54321
+checkout.produtos.sku|string| Número do SKU do Produto|a1b2c3
+checkout.produtos.preco|string| Preço sem desconto do produto separado por ponto|53.00
+checkout.produtos.preco_final|string| Preço com desconto se houver. Senão é passo o valor normal Separado por ponto|28.00
+checkout.produtos.marca|string| Marca do produto | samsumg
+checkout.produtos.loja|string| Loja que o produto está sendo vendido| submarino
+checkout.produtos.tem_review|boolean| Tem ou não review | **true** ou **false**
+checkout.produtos.qtd_review|string| Quantidade de reviews. Se não tiver, é passado o valor 0 | 7
+checkout.produtos.porcentagem_avaliacao|string| Porcentagem de avaliação . Se não tiver, é passado 0 | 97
+checkout.produtos.participa_promocao|boolean| Verificação se o produto participa ou não de uma promoção | true
+checkout.produtos.nome_promocao|string| Nome da Promoção que o produto participa. Se não houver participação é passado em branco |submarino_day
+checkout.produtos.quantidade|string| quantidade de produtos comprados| 2
+usuario|objeto|Objeto contendo informações do usuário|
+usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
+usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email
+usuario.idade| string | Idade do usuário | 26
+usuario.sexo | string | Sexo do usuário | masculino ou feminino
+usuario.status|string| Se está logado ou não| logado, nao_logado
+
+
+#### **Checkout - Conclusão**
+
+**ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.**
+
+```js
+dataLayer.push({
+    'event': 'buscapeCheckout',
+	'pagina': {
+		'template': 'checkout',
+		'protocolo': 'http:',
+		'referrer': 'www.uol.com.br',
+		'dispositivo'  : 'mobile',
+		'tipo' : ''
+	},
+	'checkout':{
+		'step' : '5',
+		'nome' : 'conclusao',
+		'transacao':{
+				'id':'123131',
+				'total':'120.00',
+				'total_sem_desconto':'105.00'
+				'desconto':'15.00',
+				'taxa':'01.00',
+				'taxa_entrega':'04.00',
+				'cupom':'sale',
+		},
+		'produtos' : [{
+				'nome':'produto C',
+				'departamento':'telefonia',
+				'categoria':'celular_e_smartphone',	
+				'id_produto':'54321',
+				'id_oferta':'edcba',
+				'sku':'c3b2a1',
+				'preco':'35.00',
+				'preco_final':'28.00',
+				'marca':'apple',
+				'loja':'submarino',
+				'tem_review': true,
+				'qtd_review':'23',
+				'porcentagem_avaliacao':'95%',
+				'participa_promocao': true,
+				'nome_promocao' : 'submarino_day',
+				'quantidade':'1'
+			},
+			{
+				'nome':'produto D',
+				'departamento':'telefonia',
+				'categoria':'celular_e_smartphone',
+				'id_produto':'54321',
+				'id_oferta':'edcba',
+				'sku':'c3b2a1',
+				'preco_real':'37.00',
+				'preco_final':'25.00',
+				'marca':'samsumg',
+				'loja':'fast_shop',
+				'tem_review': false,
+				'qtd_review':'0',
+				'porcentagem_avaliacao':'',
+				'participa_promocao': false,
+				'nome_promocao' : '',
+				'quantidade':'2'
+			}]
+	},	
+	'usuario': {
+		'id':'12345',
+		'tipo_login':'facebook',
+		'idade':'26',
+		'sexo':'masculino',
+		'status':'logado'
+	}
+});
+
+```
+
+Chave| Tipo de valor|Descrição |Exemplo
+-------- | --- | ---
+pagina		| objeto| |
+pagina.template	| string| Definição da Página|home
+pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
+pagina.referrer| string | referral do acesso|www.uol.com.br
+pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.departamento|string|Departamento |telefonia
+pagina.categoria|string|Categoria|celular_e_smartphone
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+checkout| objeto | Objeto contendo informações do checkout|
+checkout.nome | string | nome do passo do checkout| autenticacao, entrega, pagamento, conclusao, completar_cadastro
+checkout.step | string | número do passo do checkout| 1, 2,3,4,5
+checkout.produtos | array | |Listas contendo informações de dos produtos no checkout|
+checkout.produtos.nome|string|Nome do produto | produto_a
+checkout.produtos.departamento|string|Nome do Departamento do Produto | telefonia
+checkout.produtos.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
+checkout.produtos.id_produto|string| número de identificação do produto | 12345
+checkout.produtos.id_oferta|string| Número da identificação da oferta | 54321
+checkout.produtos.sku|string| Número do SKU do Produto|a1b2c3
+checkout.produtos.preco|string| Preço sem desconto do produto separado por ponto|53.00
+checkout.produtos.preco_final|string| Preço com desconto se houver. Senão é passo o valor normal Separado por ponto|28.00
+checkout.produtos.marca|string| Marca do produto | samsumg
+checkout.produtos.loja|string| Loja que o produto está sendo vendido| submarino
+checkout.produtos.tem_review|boolean| Tem ou não review | **true** ou **false**
+checkout.produtos.qtd_review|string| Quantidade de reviews. Se não tiver, é passado o valor 0 | 7
+checkout.produtos.porcentagem_avaliacao|string| Porcentagem de avaliação . Se não tiver, é passado 0 | 97
+checkout.produtos.participa_promocao|boolean| Verificação se o produto participa ou não de uma promoção | true
+checkout.produtos.nome_promocao|string| Nome da Promoção que o produto participa. Se não houver participação é passado em branco |submarino_day
+checkout.produtos.quantidade|string| quantidade de produtos comprados| 2
+checkout.transacao|array| array contendo informações de transação|
+checkout.transacao.cupom|string|nome do cupom utilizado de desconto|sale, cupom_da_sorte
+checkout.transacao.desconto|string|total de descontos da compra| 123.00
+checkout.transacao.id|string|id da transação(se algum sistema ja tiver passando essa informação, temos que passar o mesmo)| 12345
+checkout.transacao.taxa|string| taxas diversas da compra| 123.00
+checkout.transacao.taxa_entrega| string| taxa de entrega ou do frete| 3231.00
+checkout.transacao.total|string| valor total dos itens| 31231.00
+checkout.transacao.total_sem_desconto|string| valor total com todas as taxas| 3123131.00
 usuario|objeto|Objeto contendo informações do usuário|
 usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
 usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email

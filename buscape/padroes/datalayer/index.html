@@ -583,10 +583,10 @@ code {
 <li><a href="#pu">P.U</a></li>
 <li><a href="#oferta">Oferta</a></li>
 <li><a href="#categoria">Categoria</a></li>
-<li><a href="#busca">Busca</a></li></ul></li>
+<li><a href="#busca">Busca</a></li>
+<li><a href="#checkout">Checkout</a></li>
+<li><a href="#checkout-conclusão">Checkout - Conclusão</a></li></ul></li>
 </ul>
-
-
 
 <h3 id="o-que-é-datalayer"><strong>O que é dataLayer?</strong></h3>
 
@@ -711,6 +711,8 @@ dataLayer = [{
     }
 }]
 <span class="hljs-tag">&lt;<span class="hljs-title">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">iframe</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"//www.googletagmanager.com/ns.html?id=GTM-W7LVSD"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"0"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"display: none; visibility: hidden;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">iframe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">noscript</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(w,d,s,l,i)</span>{</span>w[l]=w[l]||[];w[l].push({<span class="hljs-string">'gtm.start'</span>:<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime(),event:<span class="hljs-string">'gtm.js'</span>});<span class="hljs-keyword">var</span> f=d.getElementsByTagName(s)[<span class="hljs-number">0</span>],j=d.createElement(s),dl=l!=<span class="hljs-string">'dataLayer'</span>?<span class="hljs-string">'&amp;amp;l='</span>+l:<span class="hljs-string">''</span>;j.async=<span class="hljs-literal">true</span>;j.src=<span class="hljs-string">'//www.googletagmanager.com/gtm.js?id='</span>+i+dl;f.parentNode.insertBefore(j,f);})(window,document,<span class="hljs-string">'script'</span>,<span class="hljs-string">'dataLayer'</span>,<span class="hljs-string">'GTM-W7LVSD'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+
+
 
 <h3 id="aplicação"><strong>Aplicação</strong></h3>
 
@@ -1014,6 +1016,8 @@ dataLayer = [{
   <td>logado, nao_logado</td>
 </tr>
 </tbody></table>
+
+
 
 
 <h4 id="pu"><strong>P.U</strong></h4>
@@ -1466,6 +1470,8 @@ dataLayer = [{
 </tbody></table>
 
 
+
+
 <h4 id="oferta"><strong>Oferta</strong></h4>
 
 
@@ -1878,6 +1884,8 @@ dataLayer = [{
 </tbody></table>
 
 
+
+
 <h4 id="categoria"><strong>Categoria</strong></h4>
 
 
@@ -2190,6 +2198,8 @@ dataLayer = [{
 </tbody></table>
 
 
+
+
 <h4 id="busca"><strong>Busca</strong></h4>
 
 
@@ -2482,6 +2492,631 @@ dataLayer = [{
   <td>string</td>
   <td>Posição que a oferta aparece. Se a lista for reordenada, a posição terá que seguir a ordernação.</td>
   <td>3</td>
+</tr>
+<tr>
+  <td>usuario</td>
+  <td>objeto</td>
+  <td>Objeto contendo informações do usuário</td>
+  <td></td>
+</tr>
+<tr>
+  <td>usuario.id</td>
+  <td>string</td>
+  <td>ID atribuido ao usuario quando ele estiver logado</td>
+  <td>3121312</td>
+</tr>
+<tr>
+  <td>usuario.tipo_login</td>
+  <td>string</td>
+  <td>Meio que o usuário acessou o site</td>
+  <td>facebook ou google ou email</td>
+</tr>
+<tr>
+  <td>usuario.idade</td>
+  <td>string</td>
+  <td>Idade do usuário</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>usuario.sexo</td>
+  <td>string</td>
+  <td>Sexo do usuário</td>
+  <td>masculino ou feminino</td>
+</tr>
+<tr>
+  <td>usuario.status</td>
+  <td>string</td>
+  <td>Se está logado ou não</td>
+  <td>logado, nao_logado</td>
+</tr>
+</tbody></table>
+
+
+
+
+<h4 id="checkout"><strong>Checkout</strong></h4>
+
+<p><strong>ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.</strong></p>
+
+<pre class="prettyprint"><code class="language-js hljs "> dataLayer.push({
+    <span class="hljs-string">'event'</span>: <span class="hljs-string">'buscapeCheckout'</span>,
+    <span class="hljs-string">'pagina'</span>: {
+        <span class="hljs-string">'template'</span>: <span class="hljs-string">'checkout'</span>,
+        <span class="hljs-string">'protocolo'</span>: <span class="hljs-string">'http:'</span>,
+        <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
+        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">''</span>
+    },
+    <span class="hljs-string">'checkout'</span>:{
+        <span class="hljs-string">'step'</span> : <span class="hljs-string">'5'</span>,
+        <span class="hljs-string">'nome'</span> : <span class="hljs-string">'conclusao'</span>,
+        <span class="hljs-string">'transacao'</span>:{
+                <span class="hljs-string">'id'</span>:<span class="hljs-string">'123131'</span>,
+                <span class="hljs-string">'total'</span>:<span class="hljs-string">'123.23'</span>,
+                <span class="hljs-string">'desconto'</span>:<span class="hljs-string">'12.00'</span>,
+                <span class="hljs-string">'taxa'</span>:<span class="hljs-string">'01.00'</span>,
+                <span class="hljs-string">'taxa_entrega'</span>:<span class="hljs-string">'05.00'</span>,
+                <span class="hljs-string">'cupom'</span>:<span class="hljs-string">'sale'</span>,
+        },
+        <span class="hljs-string">'produtos'</span> : [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'quantidade'</span> : <span class="hljs-string">'1'</span>
+            },
+            {
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'quantidade'</span>:<span class="hljs-string">'2'</span>
+            }]
+    },  
+    <span class="hljs-string">'usuario'</span>: {
+        <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
+        <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
+        <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
+        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+    }
+});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Descrição</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>pagina</td>
+  <td>objeto</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>pagina.template</td>
+  <td>string</td>
+  <td>Definição da Página</td>
+  <td>home</td>
+</tr>
+<tr>
+  <td>pagina.protocolo</td>
+  <td>string</td>
+  <td>Protocolo de requisição</td>
+  <td>https:// ou http://</td>
+</tr>
+<tr>
+  <td>pagina.referrer</td>
+  <td>string</td>
+  <td>referral do acesso</td>
+  <td>www.uol.com.br</td>
+</tr>
+<tr>
+  <td>pagina.dispositivo</td>
+  <td>string</td>
+  <td>Dispositivo de acesso</td>
+  <td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+  <td>pagina.departamento</td>
+  <td>string</td>
+  <td>Departamento</td>
+  <td>telefonia</td>
+</tr>
+<tr>
+  <td>pagina.categoria</td>
+  <td>string</td>
+  <td>Categoria</td>
+  <td>celular_e_smartphone</td>
+</tr>
+<tr>
+  <td>pagina.tipo</td>
+  <td>string</td>
+  <td>Qual o tipo da página quando ela for especial.</td>
+  <td>dia_dos_pais_2017, dia_das_criancas</td>
+</tr>
+<tr>
+  <td>checkout</td>
+  <td>objeto</td>
+  <td>Objeto contendo informações do checkout</td>
+  <td></td>
+</tr>
+<tr>
+  <td>checkout.nome</td>
+  <td>string</td>
+  <td>nome do passo do checkout</td>
+  <td>autenticacao, entrega, pagamento, conclusao, completar_cadastro</td>
+</tr>
+<tr>
+  <td>checkout.step</td>
+  <td>string</td>
+  <td>número do passo do checkout</td>
+  <td>1, 2,3,4,5</td>
+</tr>
+<tr>
+  <td>checkout.produtos</td>
+  <td>array</td>
+  <td></td>
+  <td>Listas contendo informações de dos produtos no checkout</td>
+</tr>
+<tr>
+  <td>checkout.produtos.nome</td>
+  <td>string</td>
+  <td>Nome do produto</td>
+  <td>produto_a</td>
+</tr>
+<tr>
+  <td>checkout.produtos.departamento</td>
+  <td>string</td>
+  <td>Nome do Departamento do Produto</td>
+  <td>telefonia</td>
+</tr>
+<tr>
+  <td>checkout.produtos.categoria</td>
+  <td>string</td>
+  <td>Nome da Categoria do Produto</td>
+  <td>celular_e_smarthphone</td>
+</tr>
+<tr>
+  <td>checkout.produtos.id_produto</td>
+  <td>string</td>
+  <td>número de identificação do produto</td>
+  <td>12345</td>
+</tr>
+<tr>
+  <td>checkout.produtos.id_oferta</td>
+  <td>string</td>
+  <td>Número da identificação da oferta</td>
+  <td>54321</td>
+</tr>
+<tr>
+  <td>checkout.produtos.sku</td>
+  <td>string</td>
+  <td>Número do SKU do Produto</td>
+  <td>a1b2c3</td>
+</tr>
+<tr>
+  <td>checkout.produtos.preco</td>
+  <td>string</td>
+  <td>Preço sem desconto do produto separado por ponto</td>
+  <td>53.00</td>
+</tr>
+<tr>
+  <td>checkout.produtos.preco_final</td>
+  <td>string</td>
+  <td>Preço com desconto se houver. Senão é passo o valor normal Separado por ponto</td>
+  <td>28.00</td>
+</tr>
+<tr>
+  <td>checkout.produtos.marca</td>
+  <td>string</td>
+  <td>Marca do produto</td>
+  <td>samsumg</td>
+</tr>
+<tr>
+  <td>checkout.produtos.loja</td>
+  <td>string</td>
+  <td>Loja que o produto está sendo vendido</td>
+  <td>submarino</td>
+</tr>
+<tr>
+  <td>checkout.produtos.tem_review</td>
+  <td>boolean</td>
+  <td>Tem ou não review</td>
+  <td><strong>true</strong> ou <strong>false</strong></td>
+</tr>
+<tr>
+  <td>checkout.produtos.qtd_review</td>
+  <td>string</td>
+  <td>Quantidade de reviews. Se não tiver, é passado o valor 0</td>
+  <td>7</td>
+</tr>
+<tr>
+  <td>checkout.produtos.porcentagem_avaliacao</td>
+  <td>string</td>
+  <td>Porcentagem de avaliação . Se não tiver, é passado 0</td>
+  <td>97</td>
+</tr>
+<tr>
+  <td>checkout.produtos.participa_promocao</td>
+  <td>boolean</td>
+  <td>Verificação se o produto participa ou não de uma promoção</td>
+  <td>true</td>
+</tr>
+<tr>
+  <td>checkout.produtos.nome_promocao</td>
+  <td>string</td>
+  <td>Nome da Promoção que o produto participa. Se não houver participação é passado em branco</td>
+  <td>submarino_day</td>
+</tr>
+<tr>
+  <td>checkout.produtos.quantidade</td>
+  <td>string</td>
+  <td>quantidade de produtos comprados</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>usuario</td>
+  <td>objeto</td>
+  <td>Objeto contendo informações do usuário</td>
+  <td></td>
+</tr>
+<tr>
+  <td>usuario.id</td>
+  <td>string</td>
+  <td>ID atribuido ao usuario quando ele estiver logado</td>
+  <td>3121312</td>
+</tr>
+<tr>
+  <td>usuario.tipo_login</td>
+  <td>string</td>
+  <td>Meio que o usuário acessou o site</td>
+  <td>facebook ou google ou email</td>
+</tr>
+<tr>
+  <td>usuario.idade</td>
+  <td>string</td>
+  <td>Idade do usuário</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>usuario.sexo</td>
+  <td>string</td>
+  <td>Sexo do usuário</td>
+  <td>masculino ou feminino</td>
+</tr>
+<tr>
+  <td>usuario.status</td>
+  <td>string</td>
+  <td>Se está logado ou não</td>
+  <td>logado, nao_logado</td>
+</tr>
+</tbody></table>
+
+
+<h4 id="checkout-conclusão"><strong>Checkout - Conclusão</strong></h4>
+
+<p><strong>ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.</strong></p>
+
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({
+    <span class="hljs-string">'event'</span>: <span class="hljs-string">'buscapeCheckout'</span>,
+    <span class="hljs-string">'pagina'</span>: {
+        <span class="hljs-string">'template'</span>: <span class="hljs-string">'checkout'</span>,
+        <span class="hljs-string">'protocolo'</span>: <span class="hljs-string">'http:'</span>,
+        <span class="hljs-string">'referrer'</span>: <span class="hljs-string">'www.uol.com.br'</span>,
+        <span class="hljs-string">'dispositivo'</span>  : <span class="hljs-string">'mobile'</span>,
+        <span class="hljs-string">'tipo'</span> : <span class="hljs-string">''</span>
+    },
+    <span class="hljs-string">'checkout'</span>:{
+        <span class="hljs-string">'step'</span> : <span class="hljs-string">'5'</span>,
+        <span class="hljs-string">'nome'</span> : <span class="hljs-string">'conclusao'</span>,
+        <span class="hljs-string">'transacao'</span>:{
+                <span class="hljs-string">'id'</span>:<span class="hljs-string">'123131'</span>,
+                <span class="hljs-string">'total'</span>:<span class="hljs-string">'120.00'</span>,
+                <span class="hljs-string">'total_sem_desconto'</span>:<span class="hljs-string">'105.00'</span>
+                <span class="hljs-string">'desconto'</span>:<span class="hljs-string">'15.00'</span>,
+                <span class="hljs-string">'taxa'</span>:<span class="hljs-string">'01.00'</span>,
+                <span class="hljs-string">'taxa_entrega'</span>:<span class="hljs-string">'04.00'</span>,
+                <span class="hljs-string">'cupom'</span>:<span class="hljs-string">'sale'</span>,
+        },
+        <span class="hljs-string">'produtos'</span> : [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'quantidade'</span>:<span class="hljs-string">'1'</span>
+            },
+            {
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'quantidade'</span>:<span class="hljs-string">'2'</span>
+            }]
+    },  
+    <span class="hljs-string">'usuario'</span>: {
+        <span class="hljs-string">'id'</span>:<span class="hljs-string">'12345'</span>,
+        <span class="hljs-string">'tipo_login'</span>:<span class="hljs-string">'facebook'</span>,
+        <span class="hljs-string">'idade'</span>:<span class="hljs-string">'26'</span>,
+        <span class="hljs-string">'sexo'</span>:<span class="hljs-string">'masculino'</span>,
+        <span class="hljs-string">'status'</span>:<span class="hljs-string">'logado'</span>
+    }
+});
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Chave</th>
+  <th>Tipo de valor</th>
+  <th>Descrição</th>
+  <th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>pagina</td>
+  <td>objeto</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>pagina.template</td>
+  <td>string</td>
+  <td>Definição da Página</td>
+  <td>home</td>
+</tr>
+<tr>
+  <td>pagina.protocolo</td>
+  <td>string</td>
+  <td>Protocolo de requisição</td>
+  <td>https:// ou http://</td>
+</tr>
+<tr>
+  <td>pagina.referrer</td>
+  <td>string</td>
+  <td>referral do acesso</td>
+  <td>www.uol.com.br</td>
+</tr>
+<tr>
+  <td>pagina.dispositivo</td>
+  <td>string</td>
+  <td>Dispositivo de acesso</td>
+  <td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+  <td>pagina.departamento</td>
+  <td>string</td>
+  <td>Departamento</td>
+  <td>telefonia</td>
+</tr>
+<tr>
+  <td>pagina.categoria</td>
+  <td>string</td>
+  <td>Categoria</td>
+  <td>celular_e_smartphone</td>
+</tr>
+<tr>
+  <td>pagina.tipo</td>
+  <td>string</td>
+  <td>Qual o tipo da página quando ela for especial.</td>
+  <td>dia_dos_pais_2017, dia_das_criancas</td>
+</tr>
+<tr>
+  <td>checkout</td>
+  <td>objeto</td>
+  <td>Objeto contendo informações do checkout</td>
+  <td></td>
+</tr>
+<tr>
+  <td>checkout.nome</td>
+  <td>string</td>
+  <td>nome do passo do checkout</td>
+  <td>autenticacao, entrega, pagamento, conclusao, completar_cadastro</td>
+</tr>
+<tr>
+  <td>checkout.step</td>
+  <td>string</td>
+  <td>número do passo do checkout</td>
+  <td>1, 2,3,4,5</td>
+</tr>
+<tr>
+  <td>checkout.produtos</td>
+  <td>array</td>
+  <td></td>
+  <td>Listas contendo informações de dos produtos no checkout</td>
+</tr>
+<tr>
+  <td>checkout.produtos.nome</td>
+  <td>string</td>
+  <td>Nome do produto</td>
+  <td>produto_a</td>
+</tr>
+<tr>
+  <td>checkout.produtos.departamento</td>
+  <td>string</td>
+  <td>Nome do Departamento do Produto</td>
+  <td>telefonia</td>
+</tr>
+<tr>
+  <td>checkout.produtos.categoria</td>
+  <td>string</td>
+  <td>Nome da Categoria do Produto</td>
+  <td>celular_e_smarthphone</td>
+</tr>
+<tr>
+  <td>checkout.produtos.id_produto</td>
+  <td>string</td>
+  <td>número de identificação do produto</td>
+  <td>12345</td>
+</tr>
+<tr>
+  <td>checkout.produtos.id_oferta</td>
+  <td>string</td>
+  <td>Número da identificação da oferta</td>
+  <td>54321</td>
+</tr>
+<tr>
+  <td>checkout.produtos.sku</td>
+  <td>string</td>
+  <td>Número do SKU do Produto</td>
+  <td>a1b2c3</td>
+</tr>
+<tr>
+  <td>checkout.produtos.preco</td>
+  <td>string</td>
+  <td>Preço sem desconto do produto separado por ponto</td>
+  <td>53.00</td>
+</tr>
+<tr>
+  <td>checkout.produtos.preco_final</td>
+  <td>string</td>
+  <td>Preço com desconto se houver. Senão é passo o valor normal Separado por ponto</td>
+  <td>28.00</td>
+</tr>
+<tr>
+  <td>checkout.produtos.marca</td>
+  <td>string</td>
+  <td>Marca do produto</td>
+  <td>samsumg</td>
+</tr>
+<tr>
+  <td>checkout.produtos.loja</td>
+  <td>string</td>
+  <td>Loja que o produto está sendo vendido</td>
+  <td>submarino</td>
+</tr>
+<tr>
+  <td>checkout.produtos.tem_review</td>
+  <td>boolean</td>
+  <td>Tem ou não review</td>
+  <td><strong>true</strong> ou <strong>false</strong></td>
+</tr>
+<tr>
+  <td>checkout.produtos.qtd_review</td>
+  <td>string</td>
+  <td>Quantidade de reviews. Se não tiver, é passado o valor 0</td>
+  <td>7</td>
+</tr>
+<tr>
+  <td>checkout.produtos.porcentagem_avaliacao</td>
+  <td>string</td>
+  <td>Porcentagem de avaliação . Se não tiver, é passado 0</td>
+  <td>97</td>
+</tr>
+<tr>
+  <td>checkout.produtos.participa_promocao</td>
+  <td>boolean</td>
+  <td>Verificação se o produto participa ou não de uma promoção</td>
+  <td>true</td>
+</tr>
+<tr>
+  <td>checkout.produtos.nome_promocao</td>
+  <td>string</td>
+  <td>Nome da Promoção que o produto participa. Se não houver participação é passado em branco</td>
+  <td>submarino_day</td>
+</tr>
+<tr>
+  <td>checkout.produtos.quantidade</td>
+  <td>string</td>
+  <td>quantidade de produtos comprados</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>checkout.transacao</td>
+  <td>array</td>
+  <td>array contendo informações de transação</td>
+  <td></td>
+</tr>
+<tr>
+  <td>checkout.transacao.cupom</td>
+  <td>string</td>
+  <td>nome do cupom utilizado de desconto</td>
+  <td>sale, cupom_da_sorte</td>
+</tr>
+<tr>
+  <td>checkout.transacao.desconto</td>
+  <td>string</td>
+  <td>total de descontos da compra</td>
+  <td>123.00</td>
+</tr>
+<tr>
+  <td>checkout.transacao.id</td>
+  <td>string</td>
+  <td>id da transação(se algum sistema ja tiver passando essa informação, temos que passar o mesmo)</td>
+  <td>12345</td>
+</tr>
+<tr>
+  <td>checkout.transacao.taxa</td>
+  <td>string</td>
+  <td>taxas diversas da compra</td>
+  <td>123.00</td>
+</tr>
+<tr>
+  <td>checkout.transacao.taxa_entrega</td>
+  <td>string</td>
+  <td>taxa de entrega ou do frete</td>
+  <td>3231.00</td>
+</tr>
+<tr>
+  <td>checkout.transacao.total</td>
+  <td>string</td>
+  <td>valor total dos itens</td>
+  <td>31231.00</td>
+</tr>
+<tr>
+  <td>checkout.transacao.total_sem_desconto</td>
+  <td>string</td>
+  <td>valor total com todas as taxas</td>
+  <td>3123131.00</td>
 </tr>
 <tr>
   <td>usuario</td>

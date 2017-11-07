@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
   <meta charset="UTF-8">
   <title>Documentação</title>
@@ -578,6 +578,28 @@ code {
 
 
 
+<h3 id="índice"><strong>Índice</strong></h3>
+
+<ul>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#datalayer">dataLayer</a></li>
+<li><a href="#observações">Observações</a></li>
+<li><a href="#banners">Banners</a> <br>
+<ul><li><a href="#impressão-do-banner">Impressão do Banner</a></li>
+<li><a href="#click-do-banner">Click do Banner</a></li></ul></li>
+<li><a href="#botões">Botões</a> <br>
+<ul><li><a href="#ir-a-loja">Ir a Loja</a></li>
+<li><a href="#compre-aqui">Compre Aqui</a></li>
+<li><a href="#comprar">Comprar</a></li></ul></li>
+<li><a href="#login">Login</a></li>
+<li><a href="#cadastro">Cadastro</a></li>
+<li><a href="#atualização-de-listas">Atualização de Listas</a></li>
+<li><a href="#checkout">Checkout</a> <br>
+<ul><li><a href="#ir-para-a-entrega">Ir para a Entrega</a></li>
+<li><a href="#ir-para-o-pagamento">Ir para o Pagamento</a></li>
+<li><a href="#finalizar-pedido">Finalizar Pedido</a></li></ul></li>
+</ul>
+
 <h3 id="objetivo"><strong>Objetivo</strong></h3>
 
 <p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong>. Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics). </p>
@@ -593,6 +615,8 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 </code></pre>
 
 <p>Esse disparo acima, seria enviado quando o usuário chegasse a tela de Transação efetuada. O GTM receberia esse evento e dispararia dados para o GA informando que a transação foi efetuada.</p>
+
+
 
 <h3 id="observações"><strong>Observações</strong></h3>
 
@@ -788,6 +812,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 </tbody></table>
 
 
+
+
 <h4 id="compre-aqui"><strong>Compre Aqui</strong></h4>
 
 <p>No momento do clique do usuário em compre aqui em <strong>qualquer lugar do site</strong>, deve-se disparar:</p>
@@ -833,6 +859,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
   <td></td>
 </tr>
 </tbody></table>
+
+
 
 
 <h4 id="comprar"><strong>Comprar</strong></h4>
@@ -883,6 +911,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 <hr>
 
+
+
 <h3 id="login"><strong>Login</strong></h3>
 
 <p>Adicionar os seguintes disparos quando o usuário se logar:</p>
@@ -890,6 +920,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 <pre class="prettyprint"><code class="language-html hljs ">dataLayer.push({'event':'sucesso', 'tipo_sucesso':'login', 'tipo_login':'facebook'});</code></pre>
+
+
 
 <h3 id="cadastro"><strong>Cadastro</strong></h3>
 
@@ -904,6 +936,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 <h3 id="atualização-de-listas"><strong>Atualização de Listas</strong></h3>
 
 <p>Adicionar os seguintes disparos quando a lista estiver pronta ou for atualizada:</p>
+
+
 
 <pre class="prettyprint"><code class="language-javascript hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'listas'</span>, <span class="hljs-string">'listas'</span>: [{
             <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>,
@@ -983,3 +1017,32 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
                 <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'2'</span>
             }]
         }]});</code></pre>
+
+
+
+<h3 id="checkout"><strong>Checkout</strong></h3>
+
+<h4 id="ir-para-a-entrega"><strong>Ir para a Entrega</strong></h4>
+
+<p>Disparar este evento quando o usuário realmente estiver apto para ir à entrega</p>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_para_a_entrega'</span>});
+</code></pre>
+
+<h4 id="ir-para-o-pagamento"><strong>Ir para o Pagamento</strong></h4>
+
+<p>Disparar este evento quando o usuário realmente estiver apto para ir ao pagamento</p>
+
+<pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_para_o_pagamento'</span>});
+</code></pre>
+
+
+
+<h4 id="finalizar-pedido"><strong>Finalizar Pedido</strong></h4>
+
+<p>Disparar este evento quando o usuário realmente estiver apto para à finalizar o pedido</p>
+
+<pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'finalizar_pedido'</span>});
+</code></pre>

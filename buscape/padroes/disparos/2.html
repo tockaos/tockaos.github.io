@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Documentação</title>
@@ -589,12 +589,10 @@ code {
 <p>dataLayer é uma variável global criada dentro do GTM. Ela é a camada de dados que usaremos para obter as informações de cada página, produto, listas, etc <br>
 Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou interações para camada de dados. Ex:</p>
 
-<pre><code>dataLayer.push({'event':'sucesso', 'tipo-sucesso':'transacao'});
+<pre><code>dataLayer.push({'event':'sucesso', 'tipo_sucesso':'transacao'});
 </code></pre>
 
 <p>Esse disparo acima, seria enviado quando o usuário chegasse a tela de Transação efetuada. O GTM receberia esse evento e dispararia dados para o GA informando que a transação foi efetuada.</p>
-
-
 
 <h3 id="observações"><strong>Observações</strong></h3>
 
@@ -605,6 +603,8 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 </ul>
 
 <hr>
+
+
 
 <h3 id="banners"><strong>Banners</strong></h3>
 
@@ -672,6 +672,8 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 </tbody></table>
 
 
+
+
 <h4 id="click-do-banner"><strong>Click do Banner</strong></h4>
 
 
@@ -734,6 +736,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 <hr>
 
+
+
 <h3 id="botões"><strong>Botões</strong></h3>
 
 
@@ -744,9 +748,9 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
-<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_a_loja'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>});
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_a_loja'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});
 
-dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'ir_a_loja'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'123123145'</span>});</code></pre>
+dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'ir_a_loja'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'123123145'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});</code></pre>
 
 <table>
 <thead>
@@ -767,13 +771,19 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
   <td>tipo_botao</td>
   <td>string</td>
   <td>Tipo de botão clicado</td>
-  <td>ir-a-loja</td>
+  <td>ir_a_loja</td>
 </tr>
 <tr>
   <td>id_oferta</td>
   <td>string</td>
   <td>ID da oferta do item disparado</td>
   <td>123456</td>
+</tr>
+<tr>
+  <td>nome_lista</td>
+  <td>string</td>
+  <td>Nome da lista em que o produto está inserido.</td>
+  <td></td>
 </tr>
 </tbody></table>
 
@@ -785,9 +795,9 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 <pre class="prettyprint"><code class="language-js hljs ">
-dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'compre_aqui'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>});
+dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'compre_aqui'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});
 
-dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'compre_aqui'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'312123'</span>});</code></pre>
+dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'compre_aqui'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'312123'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});</code></pre>
 
 <table>
 <thead>
@@ -816,6 +826,12 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
   <td>ID da oferta do item disparado</td>
   <td>123456</td>
 </tr>
+<tr>
+  <td>nome_lista</td>
+  <td>string</td>
+  <td>Nome da lista em que o produto está inserido.</td>
+  <td></td>
+</tr>
 </tbody></table>
 
 
@@ -825,9 +841,9 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
-<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'comprar'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>});
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'comprar'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'12345'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});
 
-dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo-botao'</span>:<span class="hljs-string">'comprar'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'1233123145'</span>});</code></pre>
+dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'botao'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'comprar'</span>, <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'1233123145'</span>,<span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});</code></pre>
 
 <table>
 <thead>
@@ -856,6 +872,12 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
   <td>ID da oferta do item disparado</td>
   <td>123456</td>
 </tr>
+<tr>
+  <td>nome_lista</td>
+  <td>string</td>
+  <td>Nome da lista em que o produto está inserido.</td>
+  <td></td>
+</tr>
 </tbody></table>
 
 
@@ -867,7 +889,7 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
-<pre class="prettyprint"><code class="language-html hljs ">dataLayer.push({'event':'sucesso', 'tipo-sucesso':'login', 'tipo-login':'facebook'});</code></pre>
+<pre class="prettyprint"><code class="language-html hljs ">dataLayer.push({'event':'sucesso', 'tipo_sucesso':'login', 'tipo_login':'facebook'});</code></pre>
 
 <h3 id="cadastro"><strong>Cadastro</strong></h3>
 
@@ -875,4 +897,89 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
-<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'sucesso'</span>, <span class="hljs-string">'tipo-sucesso'</span>:<span class="hljs-string">'cadastro'</span>});</code></pre>
+<pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'sucesso'</span>, <span class="hljs-string">'tipo_sucesso'</span>:<span class="hljs-string">'cadastro'</span>});</code></pre>
+
+
+
+<h3 id="atualização-de-listas"><strong>Atualização de Listas</strong></h3>
+
+<p>Adicionar os seguintes disparos quando a lista estiver pronta ou for atualizada:</p>
+
+<pre class="prettyprint"><code class="language-javascript hljs ">dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'listas'</span>, <span class="hljs-string">'listas'</span>: [{
+            <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>,
+            <span class="hljs-string">'itens'</span>: [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'1'</span>
+            },
+            {
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'2'</span>
+            }]
+            },
+            {   
+            <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'buscape_para_voce'</span>,
+            <span class="hljs-string">'itens'</span>: [{
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>, 
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco'</span>:<span class="hljs-string">'35.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'28.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'apple'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'submarino'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'23'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">'95%'</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">'submarino_day'</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'1'</span>
+            },
+            {
+                <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto D'</span>,
+                <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
+                <span class="hljs-string">'categoria'</span>:<span class="hljs-string">'celular_e_smartphone'</span>,
+                <span class="hljs-string">'id_produto'</span>:<span class="hljs-string">'54321'</span>,
+                <span class="hljs-string">'id_oferta'</span>:<span class="hljs-string">'edcba'</span>,
+                <span class="hljs-string">'sku'</span>:<span class="hljs-string">'c3b2a1'</span>,
+                <span class="hljs-string">'preco_real'</span>:<span class="hljs-string">'37.00'</span>,
+                <span class="hljs-string">'preco_final'</span>:<span class="hljs-string">'25.00'</span>,
+                <span class="hljs-string">'marca'</span>:<span class="hljs-string">'samsumg'</span>,
+                <span class="hljs-string">'loja'</span>:<span class="hljs-string">'fast_shop'</span>,
+                <span class="hljs-string">'tem_review'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'qtd_review'</span>:<span class="hljs-string">'0'</span>,
+                <span class="hljs-string">'porcentagem_avaliacao'</span>:<span class="hljs-string">''</span>,
+                <span class="hljs-string">'participa_promocao'</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">'nome_promocao'</span> : <span class="hljs-string">''</span>,
+                <span class="hljs-string">'posicao_oferta'</span> : <span class="hljs-string">'2'</span>
+            }]
+        }]});</code></pre>

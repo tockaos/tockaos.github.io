@@ -1,9 +1,30 @@
-![enter image description here](http://image.buscape.com/material/buscape.png)
+﻿![enter image description here](http://image.buscape.com/material/buscape.png)
 
 #**Google Analytics**
 
 -------
 ##**Padronização de disparos**
+
+### **Índice**
+
+- [Objetivo](#objetivo)
+- [dataLayer](#datalayer)
+- [Observações](#observações)
+- [Banners](#banners)
+	- [Impressão do Banner](#impressão-do-banner)
+	- [Click do Banner](#click-do-banner)
+- [Botões](#botões)
+	- [Ir a Loja](#ir-a-loja)
+	- [Compre Aqui](#compre-aqui)
+	- [Comprar](#comprar)
+- [Login](#login)
+- [Cadastro](#cadastro)
+- [Atualização de Listas](#atualização-de-listas)
+- [Checkout](#checkout)
+	- [Ir para a Entrega](#ir-para-a-entrega)
+	- [Ir para o Pagamento](#ir-para-o-pagamento)
+	- [Finalizar Pedido](#finalizar-pedido)
+
 
 
 ###**Objetivo**
@@ -248,3 +269,31 @@ dataLayer.push({'event':'listas', 'listas': [{
         }]});
 ```
 
+### **Checkout**
+
+#### **Ir para a Entrega**
+
+Disparar este evento quando o usuário realmente estiver apto para ir à entrega
+
+```javascript
+	dataLayer.push({'event':'disparos_checkout','tipo_botao':'ir_para_a_entrega'});
+
+```
+
+#### **Ir para o Pagamento**
+
+Disparar este evento quando o usuário realmente estiver apto para ir ao pagamento
+
+```javascript
+	dataLayer.push({'event':'disparos_checkout','tipo_botao':'ir_para_o_pagamento'});
+
+```
+
+#### **Finalizar Pedido**
+
+Disparar este evento quando o usuário realmente estiver apto para à finalizar o pedido
+
+```javascript
+	dataLayer.push({'event':'disparos_checkout','tipo_botao':'finalizar_pedido'});
+
+```

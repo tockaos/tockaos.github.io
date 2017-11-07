@@ -588,6 +588,8 @@ code {
 <li><a href="#checkout-conclusão">Checkout - Conclusão</a></li></ul></li>
 </ul>
 
+
+
 <h3 id="o-que-é-datalayer"><strong>O que é dataLayer?</strong></h3>
 
 <p>A variável da camada de dados instalada tem o nome de <strong>dataLayer</strong>, ela é um Objeto javascript. Ela é uma variavel global criada pelo GTM(Google Tag Manager)</p>
@@ -2538,6 +2540,8 @@ dataLayer = [{
 
 <p><strong>ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.</strong></p>
 
+
+
 <pre class="prettyprint"><code class="language-js hljs "> dataLayer.push({
     <span class="hljs-string">'event'</span>: <span class="hljs-string">'buscapeCheckout'</span>,
     <span class="hljs-string">'pagina'</span>: {
@@ -2550,14 +2554,6 @@ dataLayer = [{
     <span class="hljs-string">'checkout'</span>:{
         <span class="hljs-string">'step'</span> : <span class="hljs-string">'5'</span>,
         <span class="hljs-string">'nome'</span> : <span class="hljs-string">'conclusao'</span>,
-        <span class="hljs-string">'transacao'</span>:{
-                <span class="hljs-string">'id'</span>:<span class="hljs-string">'123131'</span>,
-                <span class="hljs-string">'total'</span>:<span class="hljs-string">'123.23'</span>,
-                <span class="hljs-string">'desconto'</span>:<span class="hljs-string">'12.00'</span>,
-                <span class="hljs-string">'taxa'</span>:<span class="hljs-string">'01.00'</span>,
-                <span class="hljs-string">'taxa_entrega'</span>:<span class="hljs-string">'05.00'</span>,
-                <span class="hljs-string">'cupom'</span>:<span class="hljs-string">'sale'</span>,
-        },
         <span class="hljs-string">'produtos'</span> : [{
                 <span class="hljs-string">'nome'</span>:<span class="hljs-string">'produto C'</span>,
                 <span class="hljs-string">'departamento'</span>:<span class="hljs-string">'telefonia'</span>,
@@ -2824,6 +2820,8 @@ dataLayer = [{
 <h4 id="checkout-conclusão"><strong>Checkout - Conclusão</strong></h4>
 
 <p><strong>ps: dataLayers de checkout precisam ser enviados depois pois não há atualização da URL, o que impossibilita o GTM verificar toda hora.</strong></p>
+
+
 
 <pre class="prettyprint"><code class="language-js hljs ">dataLayer.push({
     <span class="hljs-string">'event'</span>: <span class="hljs-string">'buscapeCheckout'</span>,

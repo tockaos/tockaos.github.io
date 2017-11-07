@@ -944,14 +944,6 @@ usuario.status|string| Se está logado ou não| logado, nao_logado
 	'checkout':{
 		'step' : '5',
 		'nome' : 'conclusao',
-		'transacao':{
-				'id':'123131',
-				'total':'123.23',
-				'desconto':'12.00',
-				'taxa':'01.00',
-				'taxa_entrega':'05.00',
-				'cupom':'sale',
-		},
 		'produtos' : [{
 				'nome':'produto C',
 				'departamento':'telefonia',

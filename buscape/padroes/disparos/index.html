@@ -594,6 +594,7 @@ code {
 <li><a href="#login">Login</a></li>
 <li><a href="#cadastro">Cadastro</a></li>
 <li><a href="#atualização-de-listas">Atualização de Listas</a></li>
+<li><a href="#impressão-de-listas">Impressão de Listas</a></li>
 <li><a href="#checkout">Checkout</a> <br>
 <ul><li><a href="#ir-para-a-entrega">Ir para a Entrega</a></li>
 <li><a href="#ir-para-o-pagamento">Ir para o Pagamento</a></li>
@@ -1020,7 +1021,22 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
+<h3 id="impressão-de-listas"><strong>Impressão de Listas</strong></h3>
+
+<ul>
+<li>Deve ser disparada quando a lista aparece no campo visual do usuário.</li>
+<li>Só deve ser disparada uma vez</li>
+<li>Se o usuário “scrollar” até uma lista, deve acontecer o disparo igual exemplo abaixo.</li>
+</ul>
+
+<pre class="prettyprint"><code class="language-js hljs "> dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'lista_impressao'</span>, <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'lista_de_ofertas_da_home'</span>});
+
+ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'lista_impressao'</span>, <span class="hljs-string">'nome_lista'</span>:<span class="hljs-string">'ofertas_magazine_luiza'</span>});
+</code></pre>
+
 <h3 id="checkout"><strong>Checkout</strong></h3>
+
+
 
 <h4 id="ir-para-a-entrega"><strong>Ir para a Entrega</strong></h4>
 
@@ -1028,12 +1044,14 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 
 
 
-<pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_para_a_entrega'</span>});
+<pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'impressao_lista'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_para_a_entrega'</span>});
 </code></pre>
 
 <h4 id="ir-para-o-pagamento"><strong>Ir para o Pagamento</strong></h4>
 
 <p>Disparar este evento quando o usuário realmente estiver apto para ir ao pagamento</p>
+
+
 
 <pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'ir_para_o_pagamento'</span>});
 </code></pre>
@@ -1043,6 +1061,8 @@ dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-strin
 <h4 id="finalizar-pedido"><strong>Finalizar Pedido</strong></h4>
 
 <p>Disparar este evento quando o usuário realmente estiver apto para à finalizar o pedido</p>
+
+
 
 <pre class="prettyprint"><code class="language-javascript hljs ">    dataLayer.push({<span class="hljs-string">'event'</span>:<span class="hljs-string">'disparos_checkout'</span>,<span class="hljs-string">'tipo_botao'</span>:<span class="hljs-string">'finalizar_pedido'</span>});
 </code></pre>

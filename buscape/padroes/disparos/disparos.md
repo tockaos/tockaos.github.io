@@ -20,6 +20,7 @@
 - [Login](#login)
 - [Cadastro](#cadastro)
 - [Atualização de Listas](#atualização-de-listas)
+- [Impressão de Listas](#impressão-de-listas)
 - [Checkout](#checkout)
 	- [Ir para a Entrega](#ir-para-a-entrega)
 	- [Ir para o Pagamento](#ir-para-o-pagamento)
@@ -269,6 +270,18 @@ dataLayer.push({'event':'listas', 'listas': [{
         }]});
 ```
 
+### **Impressão de Listas**
+
+- Deve ser disparada quando a lista aparece no campo visual do usuário.
+- Só deve ser disparada uma vez
+- Se o usuário "scrollar" até uma lista, deve acontecer o disparo igual exemplo abaixo.
+
+```js
+ dataLayer.push({'event':'lista_impressao', 'nome_lista':'lista_de_ofertas_da_home'});
+ 
+ dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
+
+```
 ### **Checkout**
 
 #### **Ir para a Entrega**
@@ -276,7 +289,7 @@ dataLayer.push({'event':'listas', 'listas': [{
 Disparar este evento quando o usuário realmente estiver apto para ir à entrega
 
 ```javascript
-	dataLayer.push({'event':'disparos_checkout','tipo_botao':'ir_para_a_entrega'});
+	dataLayer.push({'event':'impressao_lista','tipo_botao':'ir_para_a_entrega'});
 
 ```
 

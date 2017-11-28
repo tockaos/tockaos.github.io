@@ -161,6 +161,4 @@ https://www.buscape.com.br/?utm_source=lomadee&utm_medium=display&utm_campaign=C
 
 **Como colocamos Display hoje:**
 
-https://www.buscape.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=Blast 13.11
-
-**Verificar o porque está caindo em display, já que deveria cair em CPC.**
+https://www.buscape.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=Blast13.11&ad_distribution_network=Content

@@ -1,0 +1,819 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dataLayer - Modait</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><img src="https://www.cupomdescontohoje.com.br/logomarcas/modait.png" alt="enter image description here"></p>
+<h2 id="implementação-do-datalayer"><strong>Implementação do dataLayer</strong></h2>
+<h3 id="índice"><strong>Índice</strong></h3>
+<ul>
+<li>
+<p><a href="#o-que-%C3%A9-datalayer">O que é dataLayer?</a></p>
+</li>
+<li>
+<p><a href="#utiliza%C3%A7%C3%A3o">Utilização</a></p>
+<ul>
+<li><a href="#exemplo">Exemplo</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#aplica%C3%A7%C3%A3o">Aplicação</a></p>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#shop">Shop</a></li>
+<li><a href="#vista-o-look">Vista o Look</a></li>
+<li><a href="#moods">Moods</a></li>
+<li><a href="#dicas">Dicas</a></li>
+<li><a href="#tutoriais-de-beleza">Tutoriais de Beleza</a></li>
+<li><a href="#blogs">Blogs</a></li>
+<li><a href="#marcas">Marcas</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="o-que-é-datalayer"><strong>O que é dataLayer?</strong></h3>
+<p>A variável da camada de dados instalada tem o nome de <strong>dataLayer</strong>, ela é um Objeto javascript. Ela é uma variavel global criada pelo GTM(Google Tag Manager)<br>
+Utilizamos esse objeto para obter as informações sobre a página, produtos e informações diversas como por exemplo: informações de usuários, informações de anúncios, etc.</p>
+<h3 id="utilização"><strong>Utilização</strong></h3>
+<ul>
+<li>
+<p>A camada de Dados deve ser inserida em todas as páginas.</p>
+</li>
+<li>
+<p>A camada de Dados deve ser preenchida com as informações corretas, assegurando assim a qualidade dos dados.</p>
+</li>
+<li>
+<p>A camada de dados <strong>deve sempre ser inserida antes do carregamento do GTM conforme exemplo abaixo</strong>, pois assim, conseguimos passar as informações para o GA(Google Analytics) já que estão carregadas.</p>
+</li>
+<li>
+<p>Todos os valores passados na camada de dados devem ser passados em caixa baixa e separados por <strong>underline</strong> ("<strong>_</strong>")</p>
+</li>
+<li>
+<p>Ofertas são vários preços para um mesmo item</p>
+</li>
+<li>
+<p>Itens são produtos diferentes que podem aparecer em uma lista de recomendação por exemplo</p>
+</li>
+</ul>
+<h4 id="exemplo"><strong>Exemplo</strong>:</h4>
+<p><strong>Home</strong></p>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'home'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span>d<span class="token punctuation">,</span>s<span class="token punctuation">,</span>l<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>w<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">||</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>w<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'gtm.start'</span><span class="token punctuation">:</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>event<span class="token punctuation">:</span><span class="token string">'gtm.js'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> f<span class="token operator">=</span>d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>j<span class="token operator">=</span>d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>dl<span class="token operator">=</span>l<span class="token operator">!=</span><span class="token string">'dataLayer'</span><span class="token operator">?</span><span class="token string">'&amp;l='</span><span class="token operator">+</span>l<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>j<span class="token punctuation">.</span><span class="token keyword">async</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>j<span class="token punctuation">.</span>src<span class="token operator">=</span><span class="token string">'https://www.googletagmanager.com/gtm.js?id='</span><span class="token operator">+</span>i<span class="token operator">+</span>dl<span class="token punctuation">;</span>f<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span>document<span class="token punctuation">,</span><span class="token string">'script'</span><span class="token punctuation">,</span><span class="token string">'dataLayer'</span><span class="token punctuation">,</span><span class="token string">'GTM-KXWGLVC'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+</code></pre>
+<h3 id="aplicação"><strong>Aplicação</strong></h3>
+<h4 id="home"><strong>Home</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'home'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>home</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="shop"><strong>Shop</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'shop'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>shop</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="vista--o-look"><strong>Vista  o Look</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'vista_o_look'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>vista_o_look</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="moods"><strong>Moods</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'shop'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>shop</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="dicas"><strong>Dicas</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'dicas'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>shop</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="tutoriais-de-beleza"><strong>Tutoriais de Beleza</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'tutoriais_de_beleza'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>shop</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="blogs"><strong>Blogs</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">
+window<span class="token punctuation">.</span>dataLayer <span class="token operator">=</span> window<span class="token punctuation">.</span>dataLayer <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'blogs'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocol'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'mobile'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>shop</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuario</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table></div>
+</body>
+
+</html>

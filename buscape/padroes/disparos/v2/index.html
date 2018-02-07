@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disparos - Buscapé - v2</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><img src="http://image.buscape.com/material/buscape.png" alt="enter image description here"></p>
+<h1 id="google-analytics"><strong>Google Analytics</strong></h1>
+<h2 id="padronização-de-disparos"><strong>Padronização de disparos</strong></h2>
+<h3 id="índice"><strong>Índice</strong></h3>
+<ul>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#datalayer">dataLayer</a></li>
+<li><a href="#observa%C3%A7%C3%B5es">Observações</a></li>
+<li><a href="#qualquer-click-do-site">Qualquer Click do Site</a></li>
+<li><a href="#banners">Banners</a>
+<ul>
+<li><a href="#impress%C3%A3o-do-banner">Impressão do Banner</a></li>
+<li><a href="#click-do-banner">Click do Banner</a></li>
+</ul>
+</li>
+<li><a href="#bot%C3%B5es">Botões</a></li>
+<li><a href="#impress%C3%A3o-de-listas">Impressão de Listas</a></li>
+</ul>
+<h3 id="objetivo"><strong>Objetivo</strong></h3>
+<p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong>. Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics).</p>
+<h3 id="datalayer"><strong>dataLayer</strong></h3>
+<p>dataLayer é uma variável global criada dentro do GTM. Ela é a camada de dados que usaremos para obter as informações de cada página, produto, listas, etc<br>
+Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou interações para camada de dados. Ex:</p>
+<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'ga_event'</span><span class="token punctuation">,</span><span class="token string">'eventCategory'</span><span class="token punctuation">:</span><span class="token string">'header'</span><span class="token punctuation">,</span><span class="token string">'eventAction'</span><span class="token punctuation">:</span><span class="token string">'click:logo'</span><span class="token punctuation">,</span><span class="token string">'eventLabel'</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="observações"><strong>Observações</strong></h3>
+<ul>
+<li>
+<p>Todas as informações devem ser em caixa baixa e separadas por “_” Ex: este_exemplo.</p>
+</li>
+<li>
+<p>O disparo de impressões de Banners deve acontecer apenas na visualização do banner. Se o usuário sai do alcance do banner, não deve ser disparado mais.</p>
+</li>
+</ul>
+<hr>
+<h3 id="qualquer-click-do-site"><strong>Qualquer Click do Site</strong></h3>
+<p>Para qualquer elemento do site que deverá ser tagueado, o HTML deverá conter os seguintes atributos:</p>
+<ul>
+<li>data_gacategory</li>
+<li>data_gaaction</li>
+<li>data_galabel</li>
+<li>data_gaevent</li>
+</ul>
+<p>Ex:</p>
+<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>brand__thumb<span class="token punctuation">"</span></span> <span class="token attr-name">itemprop</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">data-gaaction</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>click:logo<span class="token punctuation">"</span></span> <span class="token attr-name">data-gacategory</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span> <span class="token attr-name">data-gaevent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>event<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Buscapé<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">itemprop</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logo<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Buscapé<span class="token punctuation">"</span></span> <span class="token attr-name">srcset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://imagebuscape-a.akamaihd.net/material/logo-buscape.svg<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://imagebuscape-a.akamaihd.net/material/buscape.png<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-subnav--link nav--link<span class="token punctuation">"</span></span> <span class="token attr-name">data-galabel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tv<span class="token punctuation">"</span></span> <span class="token attr-name">data-gaaction</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menu_principal<span class="token punctuation">"</span></span> <span class="token attr-name">data-gacategory</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menu<span class="token punctuation">"</span></span> <span class="token attr-name">data-gaevent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>event<span class="token punctuation">"</span></span> <span class="token attr-name">itemprop</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">log-cat-attribute</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>log-cat-attribute<span class="token punctuation">"</span></span> <span class="token attr-name">log_id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2852<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/tv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav--link__line<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav--ico nav--ico-left nav--ico-large ico--tv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>TV<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav--ico nav--ico-right ico--arrow fl-right<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Assim o GTM entenderá automaticamente que esse elemento é um elemento tagueado, e enviará para o GA as informações do click.</p>
+<p>Teremos um mapa de métricas dizendo o que será colocado em cada um desses atributos:</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1ruAyiETsi8zgYMtXqMnReEVOkgohtqScmL8j2vTf_s8/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1ruAyiETsi8zgYMtXqMnReEVOkgohtqScmL8j2vTf_s8/edit?usp=sharing</a></p>
+<p>Esse mapa de métricas deverá sempre ser atualizado quando algum elemento novo for inserido no site.</p>
+<h3 id="banners"><strong>Banners</strong></h3>
+<p>No momento do clique do usuário em algum banner deve-se disparar:</p>
+<h4 id="impressão-do-banner"><strong>Impressão do Banner</strong></h4>
+<pre class=" language-js"><code class="prism  language-js"> dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'dell'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'verao_notebooks'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'gradiente'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'gradiente_voltou'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_-nome'</span><span class="token punctuation">:</span><span class="token string">'magazine_luiza'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'lu_com_voce'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'promocoes_da_lu'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'magazine_luiza'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'lu_e_sua_cozinha'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'promocoes_da_lu'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Definição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>nome do evento</td>
+<td>banner_impressao</td>
+</tr>
+<tr>
+<td>banner_nome</td>
+<td>string</td>
+<td>nome do banner impresso</td>
+<td>magazine_luiza</td>
+</tr>
+<tr>
+<td>banner_creative</td>
+<td>string</td>
+<td>nome da promoção ou criativo</td>
+<td>Lu_e_sua_cozinha</td>
+</tr>
+<tr>
+<td>banner_local</td>
+<td>string</td>
+<td>Local onde o banner está</td>
+<td>topo, rodape, meio, meio_esquerda</td>
+</tr>
+<tr>
+<td>banner_posicao</td>
+<td>string</td>
+<td>posicao do banner na lista</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>banner_nome_lista</td>
+<td>string</td>
+<td>Nome da lista onde o banner está inserido</td>
+<td>promocoes_da_lu, melhores_ofertas_home, sem_lista(Se não estiver em nenhuma lista)</td>
+</tr>
+</tbody>
+</table><h4 id="click-do-banner"><strong>Click do Banner</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'dell'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'verao_notebooks'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'gradiente'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'gradiente_voltou'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'magazine_luiza'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'lu_com_voce'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'promocoes_da_lu'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'magazine_luiza'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'lu_e_sua_cozinha'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'promocoes_da_lu'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Definição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>nome do evento</td>
+<td>banner_click</td>
+</tr>
+<tr>
+<td>banner_nome</td>
+<td>string</td>
+<td>nome do banner clicado</td>
+<td>magazine_luiza</td>
+</tr>
+<tr>
+<td>banner_creative</td>
+<td>string</td>
+<td>nome da promoção ou criativo</td>
+<td>Lu_e_sua_cozinha</td>
+</tr>
+<tr>
+<td>banner_local</td>
+<td>string</td>
+<td>Local onde o banner está</td>
+<td>topo, rodape, meio, meio_esquerda</td>
+</tr>
+<tr>
+<td>banner_posicao</td>
+<td>string</td>
+<td>posicao do banner na lista</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>banner_nome_lista</td>
+<td>string</td>
+<td>Nome da lista onde o banner está inserido</td>
+<td>promocoes_da_lu, melhores_ofertas_home, sem_lista(Se não estiver em nenhuma lista)</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="botões"><strong>Botões</strong></h3>
+<p>No momento do clique do usuário em <strong>Ir a Loja,  Compre Aqui ou Comprar</strong>  em <strong>qualquer lugar do site</strong>, deve-se disparar:</p>
+<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'ir_a_loja'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'30'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'compre_aqui'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'30'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'comprar'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Definição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>Evento disparado</td>
+<td>botao</td>
+</tr>
+<tr>
+<td>tipo_botao</td>
+<td>string</td>
+<td>Tipo de botão clicado</td>
+<td>ir_a_loja</td>
+</tr>
+<tr>
+<td>id_oferta</td>
+<td>string</td>
+<td>ID da oferta do item disparado</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>nome_lista</td>
+<td>string</td>
+<td>Nome da lista em que o produto está inserido.</td>
+<td></td>
+</tr>
+<tr>
+<td>departamento</td>
+<td>string</td>
+<td>Departamento do produto clicado</td>
+<td>telefonia</td>
+</tr>
+<tr>
+<td>categoria</td>
+<td>string</td>
+<td>categoria do produto clicado</td>
+<td>celular_e_smartphone</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="impressão-de-listas"><strong>Impressão de Listas</strong></h3>
+<ul>
+<li>Deve ser disparada quando a lista aparece no campo visual do usuário.</li>
+<li>Só deve ser disparada uma vez</li>
+<li>Se o usuário “scrollar” até uma lista, deve acontecer o disparo igual exemplo abaixo.</li>
+</ul>
+<pre class=" language-js"><code class="prism  language-js"> dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'lista_impressao'</span><span class="token punctuation">,</span> <span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'lista_de_ofertas_da_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+ dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'lista_impressao'</span><span class="token punctuation">,</span> <span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'ofertas_magazine_luiza'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+</div>
+</body>
+
+</html>

@@ -1,4 +1,5 @@
-﻿![enter image description here](http://image.buscape.com/material/buscape.png)
+﻿
+![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
 
@@ -9,30 +10,22 @@
 - [Objetivo](#objetivo)
 - [dataLayer](#datalayer)
 - [Observações](#observações)
-- [Qualquer Click do Site](#qualquer-click-do-site)
-- [Banners](#banners)
-	- [Impressão do Banner](#impressão-do-banner)
-	- [Click do Banner](#click-do-banner)
-- [Botões](#botões)
-- [Impressão de Listas](#impressão-de-listas)
+- [Padronização HTML](#padronização-html)
+	- [Qualquer Click do Site](#qualquer-click-do-site)
+	- [Botões](#botões) 
+- [Disparos](#disparos)
+	- [Banners](#banners)
+		- [Impressão do Banner](#impressão-do-banner)
+		- [Click do Banner](#click-do-banner)
+		- [Impressão de Listas](#impressão-de-listas)
 
 
 
 
 ### **Objetivo**
 
-Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  **dataLayer.push**. Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics). 
+Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  **dataLayer.push** ou cada elemento clicável terá atributos **data** informando ao GTM quais as variáveis a se passar . Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics). 
 
-
-### **dataLayer**
-
-dataLayer é uma variável global criada dentro do GTM. Ela é a camada de dados que usaremos para obter as informações de cada página, produto, listas, etc
-Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou interações para camada de dados. Ex:
-
-
-   ```js
-dataLayer.push({'event':'ga_event','eventCategory':'header','eventAction':'click:logo','eventLabel':''});
-```
 
 
 ### **Observações**
@@ -43,7 +36,10 @@ dataLayer.push({'event':'ga_event','eventCategory':'header','eventAction':'click
 
 -------
 
-### **Qualquer Click do Site**
+### **Padronização HTML**
+
+
+#### **Qualquer Click do Site**
 
 Para qualquer elemento do site que deverá ser tagueado, o HTML deverá conter os seguintes atributos:
 
@@ -68,11 +64,40 @@ https://docs.google.com/spreadsheets/d/1ruAyiETsi8zgYMtXqMnReEVOkgohtqScmL8j2vTf
 
 Esse mapa de métricas deverá sempre ser atualizado quando algum elemento novo for inserido no site.
 
-### **Banners**
+#### **Botões**
+
+Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  deve-se conter os elementos:
+
+ - data_gacategory (Categoria do evento do elemento clicado)
+ - data_gaaction (Ação do evento do elemento clicado)
+ - data_galabel (Rótulo  do evento do elemento clicado)
+ - data_gaevent (Tipo de evento do elemento clicado)
+ - data_gaidoferta (ID oferta do produto clicado)
+ - data_ganomelista (Nome da Lista do produto clicado)
+ - data_gadepartamento (Departamento do produto clicado)
+ - data_gacategoria (Categoria do produto clicado)
+ - data_gapreco (Preço do produto clicado)
+ - data_gamarca (Marca do produto clicado)
+ - data_galoja (Loja do produto clicado)
+ - data_gaposicao (Posição do produto clicado)
+
+```js
+
+<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data-gaevent="event" data-gacategory="produto" data-gaaction="micro_conversao:ir_a_loja" data-galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" dataga_departamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca=""electrolux  dataga_loja="submarino" data_gaposicao="1">
+
+<a href="/redirect_prod?id=3661&amp;prod_id=224171028&amp;emp_id=1132716&amp;pos=1&amp;pg=prod_unico&amp;cn=262513293&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" title="Ir à Loja" data-galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data-gaaction="micro_conversao:ir_a_loja" data-gacategory="produto" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" dataga_departamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca=""electrolux  dataga_loja="submarino" data_gaposicao="1" data-trackcheckout="true" rel="nofollow external" target="offer_224171028" data-reactid="192"><img class="offer__seller-img" src="https://imagembuscapebr-a.akamaihd.net/vitrine/logo1132716.gif" alt="Friopeças "></a>
+
+
+```
+
+
+### **Disparos**
+
+#### **Banners**
 
 No momento do clique do usuário em algum banner deve-se disparar:
 
-#### **Impressão do Banner** 
+##### **Impressão do Banner** 
 
 ```js
  dataLayer.push({'event':'banner_impressao', 'banner_nome':'dell', 'banner_creative':'verao_notebooks','banner_posicao':'1', 'banner_nome_lista':'melhores_ofertas_home'});
@@ -94,7 +119,7 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  
 
 
-#### **Click do Banner**
+##### **Click do Banner**
 
 
 
@@ -109,7 +134,7 @@ dataLayer.push({'event':'banner_click', 'banner_nome':'magazine_luiza', 'banner_
 ```
 
 Chave| Tipo de valor| Definição |Exemplo
--------- | --- | ---|---
+--|--|--|--
 event		| string | nome do evento |banner_click
 banner_nome | string | nome do banner clicado|magazine_luiza
 banner_creative | string | nome da promoção ou criativo | Lu_e_sua_cozinha 
@@ -119,38 +144,17 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  
 
 -------
-### **Botões**
-
-No momento do clique do usuário em **Ir a Loja,  Compre Aqui ou Comprar**  em **qualquer lugar do site**, deve-se disparar:
-
-```js
-dataLayer.push({'event':'botao','tipo_botao':'ir_a_loja', 'id_oferta':'12345','nome_lista':'notebook_imperdivel','departamento':'telefonia', 'categoria':'celular_e_smartphone', 'preco':'69.00','marca':'samsumg','loja':'submarino','posicao':'30',''});
-
-dataLayer.push({'event':'botao','tipo_botao':'compre_aqui', 'id_oferta':'12345','nome_lista':'notebook_imperdivel','departamento':'telefonia', 'categoria':'celular_e_smartphone', 'preco':'69.00','marca':'samsumg','loja':'submarino','posicao':'30',''});
-
-dataLayer.push({'event':'botao','tipo_botao':'comprar', 'id_oferta':'12345','nome_lista':'notebook_imperdivel','departamento':'telefonia', 'categoria':'celular_e_smartphone', 'preco':'69.00','marca':'samsumg','loja':'submarino','posicao':'1',''});
-```
-
-Chave| Tipo de valor| Definição |Exemplo
--------- | --- | ---|--
-event		| string | Evento disparado 		|botao
-tipo_botao	| string | Tipo de botão clicado 		|ir_a_loja
-id_oferta 	| string | ID da oferta do item disparado |123456
-nome_lista | string | Nome da lista em que o produto está inserido.
-departamento | string | Departamento do produto clicado | telefonia
-categoria | string | categoria do produto clicado | celular_e_smartphone
-
-----------
 
 
-### **Impressão de Listas**
+#### **Impressão de Listas**
 
 - Deve ser disparada quando a lista aparece no campo visual do usuário.
 - Só deve ser disparada uma vez
 - Se o usuário "scrollar" até uma lista, deve acontecer o disparo igual exemplo abaixo.
 
-```js
+``` js
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'lista_de_ofertas_da_home'});
  
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
 
+```

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disparos - Buscapé - v2</title>
+  <title>Padronização</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
 </head>
 
@@ -17,23 +17,26 @@
 <li><a href="#objetivo">Objetivo</a></li>
 <li><a href="#datalayer">dataLayer</a></li>
 <li><a href="#observa%C3%A7%C3%B5es">Observações</a></li>
+<li><a href="#padroniza%C3%A7%C3%A3o-html">Padronização HTML</a>
+<ul>
 <li><a href="#qualquer-click-do-site">Qualquer Click do Site</a></li>
+<li><a href="#bot%C3%B5es">Botões</a></li>
+</ul>
+</li>
+<li><a href="#disparos">Disparos</a>
+<ul>
 <li><a href="#banners">Banners</a>
 <ul>
 <li><a href="#impress%C3%A3o-do-banner">Impressão do Banner</a></li>
 <li><a href="#click-do-banner">Click do Banner</a></li>
-</ul>
-</li>
-<li><a href="#bot%C3%B5es">Botões</a></li>
 <li><a href="#impress%C3%A3o-de-listas">Impressão de Listas</a></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="objetivo"><strong>Objetivo</strong></h3>
-<p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong>. Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics).</p>
-<h3 id="datalayer"><strong>dataLayer</strong></h3>
-<p>dataLayer é uma variável global criada dentro do GTM. Ela é a camada de dados que usaremos para obter as informações de cada página, produto, listas, etc<br>
-Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou interações para camada de dados. Ex:</p>
-<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'ga_event'</span><span class="token punctuation">,</span><span class="token string">'eventCategory'</span><span class="token punctuation">:</span><span class="token string">'header'</span><span class="token punctuation">,</span><span class="token string">'eventAction'</span><span class="token punctuation">:</span><span class="token string">'click:logo'</span><span class="token punctuation">,</span><span class="token string">'eventLabel'</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong> ou cada elemento clicável terá atributos <strong>data</strong> informando ao GTM quais as variáveis a se passar . Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics).</p>
 <h3 id="observações"><strong>Observações</strong></h3>
 <ul>
 <li>
@@ -44,7 +47,8 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 </li>
 </ul>
 <hr>
-<h3 id="qualquer-click-do-site"><strong>Qualquer Click do Site</strong></h3>
+<h3 id="padronização-html"><strong>Padronização HTML</strong></h3>
+<h4 id="qualquer-click-do-site"><strong>Qualquer Click do Site</strong></h4>
 <p>Para qualquer elemento do site que deverá ser tagueado, o HTML deverá conter os seguintes atributos:</p>
 <ul>
 <li>data_gacategory</li>
@@ -61,9 +65,33 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 <p>Teremos um mapa de métricas dizendo o que será colocado em cada um desses atributos:</p>
 <p><a href="https://docs.google.com/spreadsheets/d/1ruAyiETsi8zgYMtXqMnReEVOkgohtqScmL8j2vTf_s8/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1ruAyiETsi8zgYMtXqMnReEVOkgohtqScmL8j2vTf_s8/edit?usp=sharing</a></p>
 <p>Esse mapa de métricas deverá sempre ser atualizado quando algum elemento novo for inserido no site.</p>
-<h3 id="banners"><strong>Banners</strong></h3>
+<h4 id="botões"><strong>Botões</strong></h4>
+<p>Em cada elemento onde for o clique de <strong>Ir a Loja,  Compre Aqui ou Comprar</strong>  deve-se conter os elementos:</p>
+<ul>
+<li>data_gacategory (Categoria do evento do elemento clicado)</li>
+<li>data_gaaction (Ação do evento do elemento clicado)</li>
+<li>data_galabel (Rótulo  do evento do elemento clicado)</li>
+<li>data_gaevent (Tipo de evento do elemento clicado)</li>
+<li>data_gaidoferta (ID oferta do produto clicado)</li>
+<li>data_ganomelista (Nome da Lista do produto clicado)</li>
+<li>data_gadepartamento (Departamento do produto clicado)</li>
+<li>data_gacategoria (Categoria do produto clicado)</li>
+<li>data_gapreco (Preço do produto clicado)</li>
+<li>data_gamarca (Marca do produto clicado)</li>
+<li>data_galoja (Loja do produto clicado)</li>
+<li>data_gaposicao (Posição do produto clicado)</li>
+</ul>
+<pre class=" language-js"><code class="prism  language-js">
+<span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"/redirect_prod?id=3661&amp;amp;prod_id=231682094&amp;amp;emp_id=1149445&amp;amp;pos=1&amp;amp;pg=home&amp;amp;cn=253113018&amp;amp;nc=12700120161031105552&amp;amp;az=9d847f29dafc0b1b9e4de8a43bb1627c"</span> target<span class="token operator">=</span><span class="token string">"_blank"</span> title<span class="token operator">=</span><span class="token string">"Ir a loja"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"card--product__link"</span> data<span class="token operator">-</span>gaevent<span class="token operator">=</span><span class="token string">"event"</span> data<span class="token operator">-</span>gacategory<span class="token operator">=</span><span class="token string">"produto"</span> data<span class="token operator">-</span>gaaction<span class="token operator">=</span><span class="token string">"micro_conversao:ir_a_loja"</span> data<span class="token operator">-</span>galabel<span class="token operator">=</span><span class="token string">"ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts"</span> data_gaidoferta<span class="token operator">=</span><span class="token string">"252790505"</span> data_ganomelista<span class="token operator">=</span><span class="token string">"veja_o_que_separamos_para_voce"</span> dataga_departamento<span class="token operator">=</span><span class="token string">"eletrodomesticos"</span> data_gacategoria<span class="token operator">=</span><span class="token string">"ar_condicionado"</span> data_gapreco<span class="token operator">=</span><span class="token string">"1499.9"</span> data_gamarca<span class="token operator">=</span><span class="token string">""</span>electrolux  dataga_loja<span class="token operator">=</span><span class="token string">"submarino"</span> data_gaposicao<span class="token operator">=</span><span class="token string">"1"</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"/redirect_prod?id=3661&amp;amp;prod_id=224171028&amp;amp;emp_id=1132716&amp;amp;pos=1&amp;amp;pg=prod_unico&amp;amp;cn=262513293&amp;amp;nc=12700120161031105552&amp;amp;az=9d847f29dafc0b1b9e4de8a43bb1627c"</span> title<span class="token operator">=</span><span class="token string">"Ir à Loja"</span> data<span class="token operator">-</span>galabel<span class="token operator">=</span><span class="token string">"ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts"</span> data<span class="token operator">-</span>gaaction<span class="token operator">=</span><span class="token string">"micro_conversao:ir_a_loja"</span> data<span class="token operator">-</span>gacategory<span class="token operator">=</span><span class="token string">"produto"</span> data_gaidoferta<span class="token operator">=</span><span class="token string">"252790505"</span> data_ganomelista<span class="token operator">=</span><span class="token string">"veja_o_que_separamos_para_voce"</span> dataga_departamento<span class="token operator">=</span><span class="token string">"eletrodomesticos"</span> data_gacategoria<span class="token operator">=</span><span class="token string">"ar_condicionado"</span> data_gapreco<span class="token operator">=</span><span class="token string">"1499.9"</span> data_gamarca<span class="token operator">=</span><span class="token string">""</span>electrolux  dataga_loja<span class="token operator">=</span><span class="token string">"submarino"</span> data_gaposicao<span class="token operator">=</span><span class="token string">"1"</span> data<span class="token operator">-</span>trackcheckout<span class="token operator">=</span><span class="token string">"true"</span> rel<span class="token operator">=</span><span class="token string">"nofollow external"</span> target<span class="token operator">=</span><span class="token string">"offer_224171028"</span> data<span class="token operator">-</span>reactid<span class="token operator">=</span><span class="token string">"192"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>img <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"offer__seller-img"</span> src<span class="token operator">=</span><span class="token string">"https://imagembuscapebr-a.akamaihd.net/vitrine/logo1132716.gif"</span> alt<span class="token operator">=</span><span class="token string">"Friopeças "</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+
+
+</code></pre>
+<h3 id="disparos"><strong>Disparos</strong></h3>
+<h4 id="banners"><strong>Banners</strong></h4>
 <p>No momento do clique do usuário em algum banner deve-se disparar:</p>
-<h4 id="impressão-do-banner"><strong>Impressão do Banner</strong></h4>
+<h5 id="impressão-do-banner"><strong>Impressão do Banner</strong></h5>
 <pre class=" language-js"><code class="prism  language-js"> dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'dell'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'verao_notebooks'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
  dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_impressao'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'gradiente'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'gradiente_voltou'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -120,7 +148,7 @@ Usaremos o disparo de dataLayer.push para enviar dados de cliques, acessos ou in
 <td>promocoes_da_lu, melhores_ofertas_home, sem_lista(Se não estiver em nenhuma lista)</td>
 </tr>
 </tbody>
-</table><h4 id="click-do-banner"><strong>Click do Banner</strong></h4>
+</table><h5 id="click-do-banner"><strong>Click do Banner</strong></h5>
 <pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'dell'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'verao_notebooks'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'banner_click'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome'</span><span class="token punctuation">:</span><span class="token string">'gradiente'</span><span class="token punctuation">,</span> <span class="token string">'banner_creative'</span><span class="token punctuation">:</span><span class="token string">'gradiente_voltou'</span><span class="token punctuation">,</span><span class="token string">'banner_posicao'</span><span class="token punctuation">:</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'banner_nome_lista'</span><span class="token punctuation">:</span><span class="token string">'melhores_ofertas_home'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -178,64 +206,7 @@ dataLayer<span class="token punctuation">.</span><span class="token function">pu
 </tr>
 </tbody>
 </table><hr>
-<h3 id="botões"><strong>Botões</strong></h3>
-<p>No momento do clique do usuário em <strong>Ir a Loja,  Compre Aqui ou Comprar</strong>  em <strong>qualquer lugar do site</strong>, deve-se disparar:</p>
-<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'ir_a_loja'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'30'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'compre_aqui'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'30'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'event'</span><span class="token punctuation">:</span><span class="token string">'botao'</span><span class="token punctuation">,</span><span class="token string">'tipo_botao'</span><span class="token punctuation">:</span><span class="token string">'comprar'</span><span class="token punctuation">,</span> <span class="token string">'id_oferta'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span><span class="token string">'nome_lista'</span><span class="token punctuation">:</span><span class="token string">'notebook_imperdivel'</span><span class="token punctuation">,</span><span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span> <span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span> <span class="token string">'preco'</span><span class="token punctuation">:</span><span class="token string">'69.00'</span><span class="token punctuation">,</span><span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span><span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span><span class="token punctuation">,</span><span class="token string">'posicao'</span><span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>Chave</th>
-<th>Tipo de valor</th>
-<th>Definição</th>
-<th>Exemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event</td>
-<td>string</td>
-<td>Evento disparado</td>
-<td>botao</td>
-</tr>
-<tr>
-<td>tipo_botao</td>
-<td>string</td>
-<td>Tipo de botão clicado</td>
-<td>ir_a_loja</td>
-</tr>
-<tr>
-<td>id_oferta</td>
-<td>string</td>
-<td>ID da oferta do item disparado</td>
-<td>123456</td>
-</tr>
-<tr>
-<td>nome_lista</td>
-<td>string</td>
-<td>Nome da lista em que o produto está inserido.</td>
-<td></td>
-</tr>
-<tr>
-<td>departamento</td>
-<td>string</td>
-<td>Departamento do produto clicado</td>
-<td>telefonia</td>
-</tr>
-<tr>
-<td>categoria</td>
-<td>string</td>
-<td>categoria do produto clicado</td>
-<td>celular_e_smartphone</td>
-</tr>
-</tbody>
-</table><hr>
-<h3 id="impressão-de-listas"><strong>Impressão de Listas</strong></h3>
+<h4 id="impressão-de-listas"><strong>Impressão de Listas</strong></h4>
 <ul>
 <li>Deve ser disparada quando a lista aparece no campo visual do usuário.</li>
 <li>Só deve ser disparada uma vez</li>

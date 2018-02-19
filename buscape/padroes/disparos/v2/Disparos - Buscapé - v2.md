@@ -1,4 +1,5 @@
 ﻿
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -48,12 +49,14 @@ Para qualquer elemento do site que deverá ser tagueado, o HTML deverá conter o
  - data_galabel
  - data_gaevent
 
+O **data_gaevent** deve vir como **event**
+
 Ex:
 
 ```html
-<a class="brand__thumb" itemprop="url" data-gaaction="click:logo" data-gacategory="header" data-gaevent="event" title="Buscapé" href="/"><img itemprop="logo" alt="Buscapé" srcset="https://imagebuscape-a.akamaihd.net/material/logo-buscape.svg" src="https://imagebuscape-a.akamaihd.net/material/buscape.png"></a>
+<a class="brand__thumb" itemprop="url" data_gaaction="click:logo" data_gacategory="header" data_gaevent="event" title="Buscapé" href="/"><img itemprop="logo" alt="Buscapé" srcset="https://imagebuscape-a.akamaihd.net/material/logo-buscape.svg" src="https://imagebuscape-a.akamaihd.net/material/buscape.png"></a>
 
-<a class="js-subnav--link nav--link" data-galabel="tv" data-gaaction="menu_principal" data-gacategory="menu" data-gaevent="event" itemprop="url" log-cat-attribute="log-cat-attribute" log_id="2852" href="/tv"><span class="nav--link__line"></span><i class="nav--ico nav--ico-left nav--ico-large ico--tv"></i>TV<i class="nav--ico nav--ico-right ico--arrow fl-right"></i></a>
+<a class="js-subnav--link nav--link" data_galabel="tv" data_gaaction="menu_principal" data_gacategory="menu" data_gaevent="event" itemprop="url" log-cat-attribute="log-cat-attribute" log_id="2852" href="/tv"><span class="nav--link__line"></span><i class="nav--ico nav--ico-left nav--ico-large ico--tv"></i>TV<i class="nav--ico nav--ico-right ico--arrow fl-right"></i></a>
 ```
 
 Assim o GTM entenderá automaticamente que esse elemento é um elemento tagueado, e enviará para o GA as informações do click.
@@ -81,11 +84,11 @@ Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  de
  - data_galoja (Loja do produto clicado)
  - data_gaposicao (Posição do produto clicado)
 
-```js
+O **data_gaevent** deve vir como **micro_conversao** 
 
-<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data-gaevent="event" data-gacategory="produto" data-gaaction="micro_conversao:ir_a_loja" data-galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" dataga_departamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca=""electrolux  dataga_loja="submarino" data_gaposicao="1">
+```html
 
-<a href="/redirect_prod?id=3661&amp;prod_id=224171028&amp;emp_id=1132716&amp;pos=1&amp;pg=prod_unico&amp;cn=262513293&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" title="Ir à Loja" data-galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data-gaaction="micro_conversao:ir_a_loja" data-gacategory="produto" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" dataga_departamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca=""electrolux  dataga_loja="submarino" data_gaposicao="1" data-trackcheckout="true" rel="nofollow external" target="offer_224171028" data-reactid="192"><img class="offer__seller-img" src="https://imagembuscapebr-a.akamaihd.net/vitrine/logo1132716.gif" alt="Friopeças "></a>
+<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1">
 
 
 ```
@@ -158,3 +161,4 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
 
 ```
+

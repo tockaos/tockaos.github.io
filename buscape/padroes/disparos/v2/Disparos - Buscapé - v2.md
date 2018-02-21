@@ -1,5 +1,6 @@
 ﻿
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -83,12 +84,13 @@ Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  de
  - data_gamarca (Marca do produto clicado)
  - data_galoja (Loja do produto clicado)
  - data_gaposicao (Posição do produto clicado)
+ - data_gaidproduto( ID do produto)
 
 O **data_gaevent** deve vir como **micro_conversao** 
 
 ```html
 
-<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1">
+<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1" data_gaidproduto='12345'>
 
 
 ```
@@ -161,4 +163,5 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
 
 ```
+
 

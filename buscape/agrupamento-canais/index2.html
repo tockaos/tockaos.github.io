@@ -1,0 +1,796 @@
+﻿<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Documentação</title>
+  <style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all
+}
+table th {
+    font-weight: bold
+}
+table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
+html {
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  margin: auto;
+  max-width: 918px;
+  color: #333;
+  background: #fff;
+}
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+a:hover, a:active {
+  outline: 0;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+}
+::-moz-selection {
+  background: rgba(255,255,0,0.3);
+  color: #000;
+}
+::selection {
+  background: rgba(255,255,0,0.3);
+  color: #000;
+}
+a::-moz-selection {
+  background: rgba(255,255,0,0.3);
+  color: #0645ad;
+}
+a::selection {
+  background: rgba(255,255,0,0.3);
+  color: #0645ad;
+}
+p {
+  margin: 1em 0;
+}
+img {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 1em;
+  color: #777;
+}
+p, blockquote, ul, ol, dl, table, pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+pre,
+code,
+kbd,
+samp {
+  color: #000;
+  font-family: Consolas, "Source Code Pro", monospace;
+  font-size: .90em;
+}
+code {
+  display: inline-block;
+  padding: 1px;
+  line-height: 1.3;
+  border-radius: 3px;
+  max-width: 100%;
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #099;
+}
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
+  color: #d14;
+}
+.hljs-title,
+.hljs-id,
+.coffeescript .hljs-params,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+.javascript .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.hljs-subst {
+  font-weight: normal;
+}
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+.hljs-regexp {
+  color: #009926;
+}
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+.hljs-built_in,
+.lisp .hljs-title,
+.clojure .hljs-built_in {
+  color: #0086b3;
+}
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+.hljs-deletion {
+  background: #fdd;
+}
+.hljs-addition {
+  background: #dfd;
+}
+.diff .hljs-change {
+  background: #0086b3;
+}
+.hljs-chunk {
+  color: #aaa;
+}
+    </style>
+</head>
+<body><p><img src="http://image.buscape.com/material/buscape.png" alt="enter image description here" title=""></p>
+
+
+
+<h2 id="agrupamento-padrão-de-canais"><strong>Agrupamento Padrão de Canais</strong></h2>
+
+<p>Última atualização: 28/11 - 14:30</p>
+
+
+
+<h3 id="índice"><strong>Índice</strong></h3>
+
+<ul>
+<li><a href="#utms">UTMs</a>  <br>
+<ul><li><a href="#parâmetros">Parâmetros</a></li></ul></li>
+<li><a href="#canais-e-regras-do-google-analytics">Canais e Regras do Google Analytics</a> <br>
+<ul><li><a href="#direct">Direct</a></li>
+<li><a href="#organic-search">Organic Search</a></li>
+<li><a href="#social">Social</a></li>
+<li><a href="#email">Email</a></li>
+<li><a href="#affiliates">Affiliates</a></li>
+<li><a href="#referral">Referral</a></li>
+<li><a href="#paid-search">Paid Search</a></li>
+<li><a href="#other-advertising">Other Advertising</a></li>
+<li><a href="#display">Display</a></li></ul></li>
+<li><a href="#exemplos-para-cada-canal-no-buscapé">Exemplos para cada canal no Buscapé</a></li>
+</ul>
+
+
+
+<h3 id="utms"><strong>UTMs</strong></h3>
+
+<p>UTMs são parâmetros que podem ser adicionados a URL para identificar uma origem, mídia, campanha. Adicionando esses parâmetros a URL, você fornece ao Google Analytics informações sobre a visita.</p>
+
+
+
+<h4 id="parâmetros"><strong>Parâmetros</strong></h4>
+
+<ul>
+<li><strong>utm_source(Origem):</strong> identifica o anunciante, o site, a publicação etc. que envia tráfego para a sua propriedade (por exemplo, google, newsletter4, billboard).</li>
+<li><strong>utm_medium(Mídia):</strong> a mídia de publicidade ou marketing (por exemplo: cpc, banner, email newsletter).</li>
+<li><strong>utm_campaign(Campanha):</strong> o nome da campanha individual, o slogan, o código promocional etc. de um produto.</li>
+<li><strong>utm_term(Termo):</strong> identifica palavras-chave de pesquisa paga. Se você estiver codificando manualmente campanhas de palavras-chave pagas, também deverá usar o parâmetro utm_term para especificar a palavra-chave.</li>
+<li><strong>utm_content(Conteúdo):</strong> usado para diferenciar conteúdo semelhante ou links do mesmo anúncio. Por exemplo, se tiver dois links de call-to-action na mesma mensagem de e-mail, você poderá usar “utm_content” e definir valores diferentes para cada um. Assim, você saberá qual versão é a mais eficiente.</li>
+</ul>
+
+<p><strong>Exemplo</strong></p>
+
+<p><a href="https://www.buscape.com.br/?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=intel_verao&amp;utm_term=notebook&amp;utm_content=i7_7_geracao">https://www.buscape.com.br/?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=intel_verao&amp;utm_term=notebook&amp;utm_content=i7_7_geracao</a></p>
+
+<p><strong>utm_source =</strong> <em>facebook</em> para identificar o tráfego  <br>
+<strong>utm_medium =</strong> <em>social</em> para identificar a mídia do tráfego  <br>
+<strong>utm_campaign =</strong> <em>intel_verao</em> para identificar a campanha especifica de Intel <br>
+<strong>utm_term =</strong> <em>notebook</em> para diferenciar de outras campanhas de outros produtos <br>
+<strong>utm_content=</strong> <em>i7_7_geracao</em> para identificar produtos diferentes dentro de um mesmo termo.</p>
+
+<p><strong>Observações:</strong></p>
+
+<blockquote>
+  <p>É importante sempre deixarmos todos os parâmetros em caixa baixa para não haver diferença no GA ja que o Google diferencia maiúsculo de minusculo.</p>
+</blockquote>
+
+
+
+<h3 id="canais-e-regras-do-google-analytics"><strong>Canais e Regras do Google Analytics</strong></h3>
+
+<ul>
+<li>Direct</li>
+<li>Organic Search</li>
+<li>Social</li>
+<li>Email</li>
+<li>Affiliates</li>
+<li>Referral</li>
+<li>Paid Search</li>
+<li>Other Advertising</li>
+<li>Display</li>
+</ul>
+
+
+
+<h4 id="direct"><strong>Direct</strong></h4>
+
+<blockquote>
+  <p>A origem deve ser exatamente “Direto”. <br>
+   A Mídia deve ser exatamente “(not set)” ou seja, não tem. <br>
+  <strong>Ou</strong>  <br>
+  A Mídia deve ser exatamente (none)</p>
+</blockquote>
+
+
+
+<h4 id="organic-search"><strong>Organic Search</strong></h4>
+
+<blockquote>
+  <p>Mídia deve ser exatamente “Orgânica”</p>
+</blockquote>
+
+
+
+<h4 id="social"><strong>Social</strong></h4>
+
+<blockquote>
+  <p>Referência da rede social de origem corresponde exatamente a “Sim” <br>
+  <strong>Ou</strong> <br>
+  A Mídia bate com a Regex ^(social|social-network|social-media|sm|social network|social media)$</p>
+</blockquote>
+
+
+
+<h4 id="email"><strong>Email</strong></h4>
+
+<blockquote>
+  <p>A Mídia deve ser exatamente “E-mail” ou “email”</p>
+</blockquote>
+
+
+
+<h4 id="affiliates"><strong>Affiliates</strong></h4>
+
+<blockquote>
+  <p>A Mídia deve ser exatamente “Afiliado”</p>
+</blockquote>
+
+
+
+<h4 id="referral"><strong>Referral</strong></h4>
+
+<blockquote>
+  <p>A Mídia deve ser exatamente “Referência”</p>
+</blockquote>
+
+
+
+<h4 id="paid-search"><strong>Paid Search</strong></h4>
+
+<blockquote>
+  <p>A Mídia deve bate com a Regex ^(cpc|ppc|paidsearch)$ <br>
+  <strong>E</strong> <br>
+  Ad Distribution Network(adWords) NÃO deve ser “Conteúdo”</p>
+</blockquote>
+
+
+
+<h4 id="other-advertising"><strong>Other Advertising</strong></h4>
+
+<blockquote>
+  <p>A Mídia bate com a Regex ^(cpv|cpa|cpp|content-text)$</p>
+</blockquote>
+
+
+
+<h4 id="display"><strong>Display</strong></h4>
+
+<blockquote>
+  <p>A Mídia bate com a Regex ^(display|cpm|banner)$ <br>
+  <strong>OU</strong> <br>
+  Rede de distribuição do anúncio deve ser exatamente “Conteúdo”</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Referência:  <a href="https://support.google.com/analytics/answer/3297892?hl=pt-BR">https://support.google.com/analytics/answer/3297892?hl=pt-BR</a></p>
+</blockquote>
+
+
+
+<h3 id="exemplos-para-cada-canal-no-buscapé"><strong>Exemplos para cada canal no Buscapé</strong></h3>
+
+
+
+<h4 id="social-1"><strong>Social</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=celebridades&amp;utm_term=dia_da_toalha&amp;utm_content=venda_de_livro">https://www.buscape.com.br/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=celebridades&amp;utm_term=dia_da_toalha&amp;utm_content=venda_de_livro</a></p>
+
+<p><strong>Como colocamos Social hoje:</strong></p>
+
+<p><a href="https://www.buscape.com.br/?utm_source=facebook&amp;utm_medium=categoria">https://www.buscape.com.br/?utm_source=facebook&amp;utm_medium=categoria</a></p>
+
+
+
+<h4 id="email-1"><strong>Email</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=email_marketing&amp;utm_medium=E-mail&amp;utm_campaign=pessoas_que_compraram_iphones&amp;utm_term=iphone&amp;utm_content=iphone7">https://www.buscape.com.br/?utm_source=email_marketing&amp;utm_medium=E-mail&amp;utm_campaign=pessoas_que_compraram_iphones&amp;utm_term=iphone&amp;utm_content=iphone7</a></p>
+
+<p><a href="https://www.buscape.com.br/?utm_source=email_retargeting&amp;utm_medium=E-mail&amp;utm_campaign=pessoas_que_visualizaram_celulares&amp;utm_term=iphone&amp;utm_content=iphone7">https://www.buscape.com.br/?utm_source=email_retargeting&amp;utm_medium=E-mail&amp;utm_campaign=pessoas_que_visualizaram_celulares&amp;utm_term=iphone&amp;utm_content=iphone7</a></p>
+
+<p><strong>Como colocamos Email hoje:</strong></p>
+
+<p><a href="https://www.buscape.com.br/?utm_source=transacional&amp;utm_medium=email">https://www.buscape.com.br/?utm_source=transacional&amp;utm_medium=email</a></p>
+
+
+
+<h4 id="affiliates-1"><strong>Affiliates</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=criteo&amp;utm_medium=Afiliado&amp;utm_campaign=pessoas_da_criteo&amp;utm_term=criteo&amp;utm_content=criteo">https://www.buscape.com.br/?utm_source=criteo&amp;utm_medium=Afiliado&amp;utm_campaign=pessoas_da_criteo&amp;utm_term=criteo&amp;utm_content=criteo</a></p>
+
+<p><strong>Como colocamos Afiliados hoje:</strong></p>
+
+<p>Não temos</p>
+
+
+
+<h4 id="paid-search-1"><strong>Paid Search</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=bp_institucional&amp;utm_term=eletronicos&amp;utm_content=tv">https://www.buscape.com.br/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=bp_institucional&amp;utm_term=eletronicos&amp;utm_content=tv</a></p>
+
+<p><strong>Como colocamos Paid Search hoje:</strong></p>
+
+<p>A discutir</p>
+
+
+
+<h4 id="other-advertising-1"><strong>Other Advertising</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=adnet&amp;utm_medium=cpv&amp;utm_campaign=campanha_nova&amp;utm_term=teste&amp;utm_content=teste">https://www.buscape.com.br/?utm_source=adnet&amp;utm_medium=cpv&amp;utm_campaign=campanha_nova&amp;utm_term=teste&amp;utm_content=teste</a></p>
+
+<p><strong>Como colocamos Other ADS hoje:</strong></p>
+
+<p>A discutir</p>
+
+
+
+<h4 id="display-1"><strong>Display</strong></h4>
+
+<p><a href="https://www.buscape.com.br/?utm_source=lomadee&amp;utm_medium=display&amp;utm_campaign=Conteudo&amp;utm_term=teste&amp;utm_content=teste">https://www.buscape.com.br/?utm_source=lomadee&amp;utm_medium=display&amp;utm_campaign=Conteudo&amp;utm_term=teste&amp;utm_content=teste</a></p>
+
+<p><strong>Como colocamos Display hoje:</strong></p>
+
+<p><a href="https://www.buscape.com.br/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Blast13.11&amp;ad_distribution_network=Content">https://www.buscape.com.br/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Blast13.11&amp;ad_distribution_network=Content</a></p>

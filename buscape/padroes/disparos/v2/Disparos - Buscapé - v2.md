@@ -1,6 +1,7 @@
 ﻿
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -85,12 +86,25 @@ Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  de
  - data_galoja (Loja do produto clicado)
  - data_gaposicao (Posição do produto clicado)
  - data_gaidproduto( ID do produto)
+ - data_gaselo(Selo informando algo do produto Ex: Selo de economize)
+ - data_galocaldobotao(Indicativo se o botão está no corpo da página ou no topo)
 
 O **data_gaevent** deve vir como **micro_conversao** 
 
 ```html
+Ir a Loja
 
-<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1" data_gaidproduto='12345'>
+<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='topo'>
+
+Compre Aqui
+
+<a data_galabel="perfume_azzaro_masculino_200_ml" data_gaaction="Card de Produto | Result de busca" data-gacategory="compre aqui" title="" data-position="12" data-preco="209.19" rel="nofollow external" data-e7click="true" data-id="164480" class="bui-product__link" href="/oferta/categoria/232010573/1156466" target="_blank" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:compre_aqui" data_gaidoferta="1231231" data_ganomelista="busca" data_gadepartamento="perfumaria_e_cosmeticos" data_gacategoria="perfume" data_gapreco="149" data_gamarca="azzaro"  data_galoja="netshoes" data_gaposicao="12" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='corpo_da_pagina'>
+
+Comprar
+
+<a data_galabel="perfume_azzaro_masculino_200_ml" data_gaaction="Card de Produto | Result de busca" data-gacategory="compre aqui" title="" data-position="12" data-preco="209.19" rel="nofollow external" data-e7click="true" data-id="164480" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:comprar" data_gaidoferta="1231231" data_ganomelista="oferta" data_gadepartamento="perfumaria_e_cosmeticos" data_gacategoria="perfume" data_gapreco="149" data_gamarca="azzaro"  data_galoja="netshoes" data_gaposicao="1" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='topo'>
+
+
 
 
 ```
@@ -163,5 +177,6 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
 
 ```
+
 
 

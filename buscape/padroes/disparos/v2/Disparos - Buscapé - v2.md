@@ -2,6 +2,7 @@
 
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -46,19 +47,19 @@ Para termos agilidade e precisão quando algum elemento precisa ser tagueado, en
 
 Para qualquer elemento do site que deverá ser tagueado, o HTML deverá conter os seguintes atributos:
 
- - data_gacategory
- - data_gaaction
- - data_galabel
- - data_gaevent
+ - data_ga_category
+ - data_ga_action
+ - data_ga_label
+ - data_ga_event
 
 O **data_gaevent** deve vir como **event**
 
 Ex:
 
 ```html
-<a class="brand__thumb" itemprop="url" data_gaaction="click:logo" data_gacategory="header" data_gaevent="event" title="Buscapé" href="/"><img itemprop="logo" alt="Buscapé" srcset="https://imagebuscape-a.akamaihd.net/material/logo-buscape.svg" src="https://imagebuscape-a.akamaihd.net/material/buscape.png"></a>
+<a class="brand__thumb" itemprop="url" data_ga_action="click:logo" data_ga_category="header" data_ga_event="event" title="Buscapé" href="/"><img itemprop="logo" alt="Buscapé" srcset="https://imagebuscape-a.akamaihd.net/material/logo-buscape.svg" src="https://imagebuscape-a.akamaihd.net/material/buscape.png"></a>
 
-<a class="js-subnav--link nav--link" data_galabel="tv" data_gaaction="menu_principal" data_gacategory="menu" data_gaevent="event" itemprop="url" log-cat-attribute="log-cat-attribute" log_id="2852" href="/tv"><span class="nav--link__line"></span><i class="nav--ico nav--ico-left nav--ico-large ico--tv"></i>TV<i class="nav--ico nav--ico-right ico--arrow fl-right"></i></a>
+<a class="js-subnav--link nav--link" data_ga_label="tv" data_ga_action="menu_principal" data_ga_category="menu" data_ga_event="event" itemprop="url" log-cat-attribute="log-cat-attribute" log_id="2852" href="/tv"><span class="nav--link__line"></span><i class="nav--ico nav--ico-left nav--ico-large ico--tv"></i>TV<i class="nav--ico nav--ico-right ico--arrow fl-right"></i></a>
 ```
 
 Assim o GTM entenderá automaticamente que esse elemento é um elemento tagueado, e enviará para o GA as informações do click.
@@ -73,36 +74,36 @@ Esse mapa de métricas deverá sempre ser atualizado quando algum elemento novo 
 
 Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  deve-se conter os elementos:
 
- - data_gacategory (Categoria do evento do elemento clicado)
- - data_gaaction (Ação do evento do elemento clicado)
- - data_galabel (Rótulo  do evento do elemento clicado)
- - data_gaevent (Tipo de evento do elemento clicado)
- - data_gaidoferta (ID oferta do produto clicado)
- - data_ganomelista (Nome da Lista do produto clicado)
- - data_gadepartamento (Departamento do produto clicado)
- - data_gacategoria (Categoria do produto clicado)
- - data_gapreco (Preço do produto clicado)
- - data_gamarca (Marca do produto clicado)
- - data_galoja (Loja do produto clicado)
- - data_gaposicao (Posição do produto clicado)
- - data_gaidproduto( ID do produto)
- - data_gaselo(Selo informando algo do produto Ex: Selo de economize)
- - data_galocaldobotao(Indicativo se o botão está no corpo da página ou no topo)
+ - data_ga_category (Categoria do evento do elemento clicado)
+ - data_ga_action (Ação do evento do elemento clicado)
+ - data_ga_label (Rótulo  do evento do elemento clicado)
+ - data_ga_event (Tipo de evento do elemento clicado)
+ - data_ga_idoferta (ID oferta do produto clicado)
+ - data_ga_nomelista (Nome da Lista do produto clicado)
+ - data_ga_departamento (Departamento do produto clicado)
+ - data_ga_categoria (Categoria do produto clicado)
+ - data_ga_preco (Preço do produto clicado)
+ - data_ga_marca (Marca do produto clicado)
+ - data_ga_loja (Loja do produto clicado)
+ - data_ga_posicao (Posição do produto clicado)
+ - data_ga_idproduto( ID do produto)
+ - data_ga_selo(Selo informando algo do produto Ex: Selo de economize)
+ - data_ga_localdobotao(Indicativo se o botão está no corpo da página ou no topo)
 
 O **data_gaevent** deve vir como **micro_conversao** 
 
 ```html
 Ir a Loja
 
-<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:ir_a_loja" data_galabel="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_gaidoferta="252790505" data_ganomelista="veja_o_que_separamos_para_voce" data_gadepartamento="eletrodomesticos" data_gacategoria="ar_condicionado" data_gapreco="1499.9" data_gamarca="electrolux"  data_galoja="submarino" data_gaposicao="1" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='topo'>
+<a href="/redirect_prod?id=3661&amp;prod_id=231682094&amp;emp_id=1149445&amp;pos=1&amp;pg=home&amp;cn=253113018&amp;nc=12700120161031105552&amp;az=9d847f29dafc0b1b9e4de8a43bb1627c" target="_blank" title="Ir a loja" class="card--product__link" data_ga_event="micro_conversao" data_ga_category="produto" data_ga_action="micro_conversao:ir_a_loja" data_ga_label="ar_condicionado_split_hi_wall_electrolux_ecoturbo_12.000_btu_/_h_frio_r410_-_220_volts" data_ga_idoferta="252790505" data_ga_nomelista="veja_o_que_separamos_para_voce" data_ga_departamento="eletrodomesticos" data_ga_categoria="ar_condicionado" data_ga_preco="1499.9" data_ga_marca="electrolux"  data_ga_loja="submarino" data_ga_posicao="1" data_ga_idproduto='12345' data_ga_selo='economize' data_ga_localdobotao='topo'>
 
 Compre Aqui
 
-<a data_galabel="perfume_azzaro_masculino_200_ml" data_gaaction="Card de Produto | Result de busca" data-gacategory="compre aqui" title="" data-position="12" data-preco="209.19" rel="nofollow external" data-e7click="true" data-id="164480" class="bui-product__link" href="/oferta/categoria/232010573/1156466" target="_blank" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:compre_aqui" data_gaidoferta="1231231" data_ganomelista="busca" data_gadepartamento="perfumaria_e_cosmeticos" data_gacategoria="perfume" data_gapreco="149" data_gamarca="azzaro"  data_galoja="netshoes" data_gaposicao="12" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='corpo_da_pagina'>
+<a data_ga_label="perfume_azzaro_masculino_200_ml" data_ga_action="Card de Produto | Result de busca" data_ga_category="compre aqui" title="" rel="nofollow external" data-e7click="true"  class="bui-product__link" href="/oferta/categoria/232010573/1156466" target="_blank" data_ga_event="micro_conversao" data_ga_category="produto" data_ga_action="micro_conversao:compre_aqui" data_ga_idoferta="1231231" data_ga_nomelista="busca" data_ga_departamento="perfumaria_e_cosmeticos" data_ga_categoria="perfume" data_ga_preco="149" data_ga_marca="azzaro"  data_ga_loja="netshoes" data_ga_posicao="12" data_ga_idproduto='12345' data_ga_selo='economize' data_ga_localdobotao='corpo_da_pagina'>
 
 Comprar
 
-<a data_galabel="perfume_azzaro_masculino_200_ml" data_gaaction="Card de Produto | Result de busca" data-gacategory="compre aqui" title="" data-position="12" data-preco="209.19" rel="nofollow external" data-e7click="true" data-id="164480" data_gaevent="micro_conversao" data_gacategory="produto" data_gaaction="micro_conversao:comprar" data_gaidoferta="1231231" data_ganomelista="oferta" data_gadepartamento="perfumaria_e_cosmeticos" data_gacategoria="perfume" data_gapreco="149" data_gamarca="azzaro"  data_galoja="netshoes" data_gaposicao="1" data_gaidproduto='12345' data_gaselo='economize' data_galocaldobotao='topo'>
+<a data_ga_label="perfume_azzaro_masculino_200_ml" title=""  rel="nofollow external" data-e7click="true" data_ga_event="micro_conversao" data_ga_category="produto" data_ga_action="micro_conversao:comprar" data_ga_idoferta="1231231" data_ga_nomelista="oferta" data_ga_departamento="perfumaria_e_cosmeticos" data_ga_categoria="perfume" data_ga_preco="149" data_ga_marca="azzaro"  data_ga_loja="netshoes" data_ga_posicao="1" data_ga_idproduto='12345' data_ga_selo='economize' data_ga_localdobotao='topo'>
 
 
 
@@ -177,6 +178,7 @@ banner_nome_lista | string | Nome da lista onde o banner está inserido | promoc
  dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
 
 ```
+
 
 
 

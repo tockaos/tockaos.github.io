@@ -3,6 +3,7 @@
 
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -17,12 +18,6 @@
 - [Padronização HTML](#padronização-html)
 	- [Qualquer Click do Site](#qualquer-click-do-site)
 	- [Botões](#botões) 
-- [Disparos](#disparos)
-	- [Banners](#banners)
-		- [Impressão do Banner](#impressão-do-banner)
-		- [Click do Banner](#click-do-banner)
-		- [Impressão de Listas](#impressão-de-listas)
-
 
 
 
@@ -106,79 +101,7 @@ Comprar
 <a data_ga_label="perfume_azzaro_masculino_200_ml" title=""  rel="nofollow external" data-e7click="true" data_ga_event="micro_conversao" data_ga_category="produto" data_ga_action="micro_conversao:comprar" data_ga_idoferta="1231231" data_ga_nomelista="oferta" data_ga_departamento="perfumaria_e_cosmeticos" data_ga_categoria="perfume" data_ga_preco="149" data_ga_marca="azzaro"  data_ga_loja="netshoes" data_ga_posicao="1" data_ga_idproduto='12345' data_ga_selo='economize' data_ga_localdobotao='topo'>
 
 
-
-
 ```
-
-
-### **Disparos**
-
-#### **Banners**
-
-No momento do clique do usuário em algum banner deve-se disparar:
-
-##### **Impressão do Banner** 
-
-```js
- dataLayer.push({'event':'banner_impressao', 'banner_nome':'dell', 'banner_creative':'verao_notebooks','banner_posicao':'1', 'banner_nome_lista':'melhores_ofertas_home'});
-
- dataLayer.push({'event':'banner_impressao', 'banner_nome':'gradiente', 'banner_creative':'gradiente_voltou','banner_posicao':'2', 'banner_nome_lista':'melhores_ofertas_home'});
-
- dataLayer.push({'event':'banner_impressao', 'banner_-nome':'magazine_luiza', 'banner_creative':'lu_com_voce','banner_posicao':'1', 'banner_nome_lista':'promocoes_da_lu'});
-
- dataLayer.push({'event':'banner_impressao', 'banner_nome':'magazine_luiza', 'banner_creative':'lu_e_sua_cozinha','banner_posicao':'2', 'banner_nome_lista':'promocoes_da_lu'});
-```
-Chave| Tipo de valor| Definição |Exemplo
--------- | --- | ---|---
-event		| string | nome do evento |banner_impressao
-banner_nome | string | nome do banner impresso|magazine_luiza
-banner_creative | string | nome da promoção ou criativo | Lu_e_sua_cozinha 
-banner_local |string | Local onde o banner está | topo, rodape, meio, meio_esquerda
-banner_posicao 	| string |posicao do banner na lista | 1, 2, 3
-banner_nome_lista | string | Nome da lista onde o banner está inserido | promocoes_da_lu, melhores_ofertas_home, sem_lista(Se não estiver em nenhuma lista)
- 
-
-
-##### **Click do Banner**
-
-
-
-```js
-dataLayer.push({'event':'banner_click', 'banner_nome':'dell', 'banner_creative':'verao_notebooks','banner_posicao':'1', 'banner_nome_lista':'melhores_ofertas_home'});
-
-dataLayer.push({'event':'banner_click', 'banner_nome':'gradiente', 'banner_creative':'gradiente_voltou','banner_posicao':'2', 'banner_nome_lista':'melhores_ofertas_home'});
-
-dataLayer.push({'event':'banner_click', 'banner_nome':'magazine_luiza', 'banner_creative':'lu_com_voce','banner_posicao':'1', 'banner_nome_lista':'promocoes_da_lu'});
- 
-dataLayer.push({'event':'banner_click', 'banner_nome':'magazine_luiza', 'banner_creative':'lu_e_sua_cozinha','banner_posicao':'2', 'banner_nome_lista':'promocoes_da_lu'});
-```
-
-Chave| Tipo de valor| Definição |Exemplo
---|--|--|--
-event		| string | nome do evento |banner_click
-banner_nome | string | nome do banner clicado|magazine_luiza
-banner_creative | string | nome da promoção ou criativo | Lu_e_sua_cozinha 
-banner_local |string | Local onde o banner está | topo, rodape, meio, meio_esquerda
-banner_posicao 	| string |posicao do banner na lista | 1, 2, 3
-banner_nome_lista | string | Nome da lista onde o banner está inserido | promocoes_da_lu, melhores_ofertas_home, sem_lista(Se não estiver em nenhuma lista)
- 
-
--------
-
-
-#### **Impressão de Listas**
-
-- Deve ser disparada quando a lista aparece no campo visual do usuário.
-- Só deve ser disparada uma vez
-- Se o usuário "scrollar" até uma lista, deve acontecer o disparo igual exemplo abaixo.
-
-``` js
- dataLayer.push({'event':'lista_impressao', 'nome_lista':'lista_de_ofertas_da_home'});
- 
- dataLayer.push({'event':'lista_impressao', 'nome_lista':'ofertas_magazine_luiza'});
-
-```
-
 
 
 

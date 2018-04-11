@@ -78,7 +78,8 @@ Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  de
  - micro_ga_nomelista (Nome da Lista do produto clicado)
  - micro_ga_departamento (Departamento do produto clicado)
  - micro_ga_categoria (Categoria do produto clicado)
- - micro_ga_preco (Preço do produto clicado)
+ - micro_ga_preco_boleto (Preço do produto clicado boleto)
+ - micro_ga_preco_a_vista (Preço do produto clicado a vista)
  - micro_ga_marca (Marca do produto clicado)
  - micro_ga_loja (Loja do produto clicado)
  - micro_ga_posicao (Posição do produto clicado)
@@ -119,7 +120,8 @@ dataLayer.push({"event":"micro_conversao",
 "micro_ga_nomelista":"busca",
 "micro_ga_departamento":"perfumaria_e_cosmeticos",
 "micro_ga_categoria":"perfume",
-"micro_ga_preco":"149",
+"micro_ga_preco_boleto":"149",
+"micro_ga_preco_a_vista":"147",
 "micro_ga_marca":"azzaro",  
 "micro_ga_loja":"netshoes", 
 "micro_ga_posicao":"12", 
@@ -141,7 +143,8 @@ dataLayer.push({"event":"micro_conversao",
 "micro_ga_nomelista":"oferta",
 "micro_ga_departamento":"perfumaria_e_cosmeticos",
 "micro_ga_categoria":"perfume",
-"micro_ga_preco":"149",
+"micro_ga_preco_boleto":"149",
+"micro_ga_preco_a_vista":"147",
 "micro_ga_marca":"azzaro", 
 "micro_ga_loja":"netshoes",
 "micro_ga_posicao":"1",

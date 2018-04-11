@@ -1,5 +1,6 @@
 ﻿
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 ## **Implementação do dataLayer**
@@ -211,7 +212,8 @@ dataLayer = [{
 		'departamento':'telefonia',
 		'categoria':'celular_e_smartphone',
 		'id_produto':'12345',
-		'preco':'35.00',
+		'preco_boleto':'35.00',
+		'preco_a_vista':'34.00'
 		'marca':'samsumg',
 		'loja':'submarino'
 	},
@@ -240,7 +242,8 @@ produto.nome|string|Nome do produto | produto_a
 produto.departamento|string|Nome do Departamento do produto | telefonia
 produto.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
 produto.id_produto|string| número de identificação do produto | 12345
-produto.preco|string| Preço sem desconto do produto separado por ponto|53.00
+produto.preco_boleto|string| Preço sem desconto do produto separado por ponto|53.00
+produto.preco_a_vista|string| Preço sem desconto do produto separado por ponto|52.00
 produto.marca|string| Marca do produto | samsumg
 produto.loja|string| Loja que o produto está sendo vendido| submarino
 usuario|objeto|Objeto contendo informações do usuário|
@@ -349,6 +352,7 @@ usuario.idade| string | Idade do usuário | 26
 usuario.sexo | string | Sexo do usuário | masculino ou feminino
 usuario.status|string| Se está logado ou não| logado, nao_logado
 usuario.email|string|email do usuário|teste@teste.com.br
+
 
 
 

@@ -32,9 +32,6 @@ Para termos agilidade e precisão quando algum elemento precisa ser tagueado, en
 ### **Observações**
 
  - Todas as informações devem ser em caixa baixa e separadas por "_" Ex: este_exemplo.
-
- - O disparo de impressões de Banners deve acontecer apenas na visualização do banner. Se o usuário sai do alcance do banner, não deve ser disparado mais.
-
 -------
 
 ### **Padronização HTML**
@@ -73,21 +70,21 @@ Esse mapa de métricas deverá sempre ser atualizado quando algum elemento novo 
 
 Em cada elemento onde for o clique de **Ir a Loja,  Compre Aqui ou Comprar**  deve-se disparar :
 
- - data_ga_category (Categoria do evento do elemento clicado)
- - data_ga_action (Ação do evento do elemento clicado)
- - data_ga_label (Rótulo  do evento do elemento clicado)
- - data_ga_event (Tipo de evento do elemento clicado)
- - data_ga_idoferta (ID oferta do produto clicado)
- - data_ga_nomelista (Nome da Lista do produto clicado)
- - data_ga_departamento (Departamento do produto clicado)
- - data_ga_categoria (Categoria do produto clicado)
- - data_ga_preco (Preço do produto clicado)
- - data_ga_marca (Marca do produto clicado)
- - data_ga_loja (Loja do produto clicado)
- - data_ga_posicao (Posição do produto clicado)
- - data_ga_idproduto( ID do produto)
- - data_ga_selo(Selo informando algo do produto Ex: Selo de economize)
- - data_ga_localdobotao(Indicativo se o botão está no corpo da página ou no topo)
+ - micro_ga_category (Categoria do evento do elemento clicado)
+ - micro_ga_action (Ação do evento do elemento clicado)
+ - micro_ga_label (Rótulo  do evento do elemento clicado)
+ - micro_ga_event (Tipo de evento do elemento clicado)
+ - micro_ga_idoferta (ID oferta do produto clicado)
+ - micro_ga_nomelista (Nome da Lista do produto clicado)
+ - micro_ga_departamento (Departamento do produto clicado)
+ - micro_ga_categoria (Categoria do produto clicado)
+ - micro_ga_preco (Preço do produto clicado)
+ - micro_ga_marca (Marca do produto clicado)
+ - micro_ga_loja (Loja do produto clicado)
+ - micro_ga_posicao (Posição do produto clicado)
+ - micro_ga_idproduto ( ID do produto)
+ - micro_ga_selo (Selo informando algo do produto Ex: Selo de economize)
+ - micro_ga_localdobotao (Indicativo se o botão está no corpo da página ou no topo)
 
 **Ir a Loja**
 ```js

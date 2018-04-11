@@ -32,12 +32,7 @@
 <p>Para termos agilidade e precisão quando algum elemento precisa ser tagueado, enviaremos via back-end os disparos via  <strong>dataLayer.push</strong> ou cada elemento clicável terá atributos <strong>data</strong> informando ao GTM quais as variáveis a se passar . Assim, quando subir qualquer banner ou elemento novo no site, o GTM (Google Tag Manager) enviará automaticamente os dados coletados para o GA(Google Analytics).</p>
 <h3 id="observações"><strong>Observações</strong></h3>
 <ul>
-<li>
-<p>Todas as informações devem ser em caixa baixa e separadas por “_” Ex: este_exemplo.</p>
-</li>
-<li>
-<p>O disparo de impressões de Banners deve acontecer apenas na visualização do banner. Se o usuário sai do alcance do banner, não deve ser disparado mais.</p>
-</li>
+<li>Todas as informações devem ser em caixa baixa e separadas por “_” Ex: este_exemplo.</li>
 </ul>
 <hr>
 <h3 id="padronização-html"><strong>Padronização HTML</strong></h3>
@@ -63,21 +58,21 @@
 <h4 id="botões"><strong>Botões</strong></h4>
 <p>Em cada elemento onde for o clique de <strong>Ir a Loja,  Compre Aqui ou Comprar</strong>  deve-se disparar :</p>
 <ul>
-<li>data_ga_category (Categoria do evento do elemento clicado)</li>
-<li>data_ga_action (Ação do evento do elemento clicado)</li>
-<li>data_ga_label (Rótulo  do evento do elemento clicado)</li>
-<li>data_ga_event (Tipo de evento do elemento clicado)</li>
-<li>data_ga_idoferta (ID oferta do produto clicado)</li>
-<li>data_ga_nomelista (Nome da Lista do produto clicado)</li>
-<li>data_ga_departamento (Departamento do produto clicado)</li>
-<li>data_ga_categoria (Categoria do produto clicado)</li>
-<li>data_ga_preco (Preço do produto clicado)</li>
-<li>data_ga_marca (Marca do produto clicado)</li>
-<li>data_ga_loja (Loja do produto clicado)</li>
-<li>data_ga_posicao (Posição do produto clicado)</li>
-<li>data_ga_idproduto( ID do produto)</li>
-<li>data_ga_selo(Selo informando algo do produto Ex: Selo de economize)</li>
-<li>data_ga_localdobotao(Indicativo se o botão está no corpo da página ou no topo)</li>
+<li>micro_ga_category (Categoria do evento do elemento clicado)</li>
+<li>micro_ga_action (Ação do evento do elemento clicado)</li>
+<li>micro_ga_label (Rótulo  do evento do elemento clicado)</li>
+<li>micro_ga_event (Tipo de evento do elemento clicado)</li>
+<li>micro_ga_idoferta (ID oferta do produto clicado)</li>
+<li>micro_ga_nomelista (Nome da Lista do produto clicado)</li>
+<li>micro_ga_departamento (Departamento do produto clicado)</li>
+<li>micro_ga_categoria (Categoria do produto clicado)</li>
+<li>micro_ga_preco (Preço do produto clicado)</li>
+<li>micro_ga_marca (Marca do produto clicado)</li>
+<li>micro_ga_loja (Loja do produto clicado)</li>
+<li>micro_ga_posicao (Posição do produto clicado)</li>
+<li>micro_ga_idproduto ( ID do produto)</li>
+<li>micro_ga_selo (Selo informando algo do produto Ex: Selo de economize)</li>
+<li>micro_ga_localdobotao (Indicativo se o botão está no corpo da página ou no topo)</li>
 </ul>
 <p><strong>Ir a Loja</strong></p>
 <pre class=" language-js"><code class="prism  language-js">

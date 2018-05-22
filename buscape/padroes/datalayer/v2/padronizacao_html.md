@@ -1,6 +1,7 @@
 ﻿
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 ## **Implementação do dataLayer**
@@ -48,7 +49,8 @@ dataLayer = [{
 		'protocol': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 	},
 	'usuario': {
 		'id':'12345',
@@ -75,7 +77,8 @@ dataLayer = [{
 		'protocol': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 
 	},
 	'usuario': {
@@ -97,6 +100,7 @@ pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 usuario|objeto|Objeto contendo informações do usuário|
 usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
 usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email
@@ -116,7 +120,8 @@ dataLayer = [{
 		'protocol': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 
 	},
 	'usuario': {
@@ -138,6 +143,7 @@ pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 usuario|objeto|Objeto contendo informações do usuário|
 usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
 usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email
@@ -155,7 +161,8 @@ dataLayer = [{
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 
 	},
 	'produto' : {
@@ -183,6 +190,7 @@ pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 produto.nome|string|Nome do produto | produto_a
 produto.departamento|string|Nome do Departamento do produto | telefonia
 produto.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
@@ -204,7 +212,8 @@ dataLayer = [{
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 
 	},
 	'produto' : {
@@ -238,6 +247,7 @@ pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 produto.nome|string|Nome do produto | produto_a
 produto.departamento|string|Nome do Departamento do produto | telefonia
 produto.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
@@ -264,7 +274,8 @@ dataLayer = [{
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 	},
 	'produto':{
 		'departamento' : 'telefonia',
@@ -291,6 +302,7 @@ pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.departamento|string|Departamento |telefonia
 pagina.categoria|string|Categoria|celular_e_smartphone
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 produto.departamento|string|Nome do Departamento do produto | telefonia
 produto.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
 usuario|objeto|Objeto contendo informações do usuário|
@@ -312,7 +324,8 @@ dataLayer = [{
 		'protocolo': 'http:',
 		'referrer': 'www.uol.com.br',
 		'dispositivo'  : 'mobile',
-		'tipo' : 'dia_dos_pais_2017'
+		'tipo' : 'dia_dos_pais_2017',
+		'origem_busca':'chaordic'
 	},
 	'busca':{
 		'termo_buscado' : 'celular',
@@ -340,6 +353,7 @@ pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
 pagina.referrer| string | referral do acesso|www.uol.com.br
 pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
 pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
 busca|objeto||
 busca.termo_buscado|string|O que foi procurado no campo de busca|celular
 busca.quantidade_resultados|string|Quantidade dos itens pesquisados| 12313
@@ -352,6 +366,7 @@ usuario.idade| string | Idade do usuário | 26
 usuario.sexo | string | Sexo do usuário | masculino ou feminino
 usuario.status|string| Se está logado ou não| logado, nao_logado
 usuario.email|string|email do usuário|teste@teste.com.br
+
 
 
 

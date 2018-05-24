@@ -186,3 +186,12 @@ Ao clicar em diminuir quantidade, deve-se disparar:
 ```js
 dataLayer.push({"event":"diminuir_quantidade"});
 ```
+
+**Excluir produtos**
+
+Ao clicar no ícone de excluir produtos, deve-se disparar:
+
+```js
+dataLayer.push({"event":"excluir_produtos"});
+```
+

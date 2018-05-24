@@ -171,3 +171,18 @@ dataLayer.push({"event":"consultar_cep",
 "frete_quantidade_dias":"11"});
 
 ```
+**Aumentar Quantidade**
+
+Ao clicar em aumentar quantidade, deve-se disparar:
+
+```js
+dataLayer.push({"event":"aumentar_quantidade"});
+
+```
+**Diminuir Quantidade**
+
+Ao clicar em diminuir quantidade, deve-se disparar:
+
+```js
+dataLayer.push({"event":"diminuir_quantidade"});
+```

@@ -2,6 +2,7 @@
 
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 ## **Implementação do dataLayer**
@@ -18,6 +19,7 @@
 	- [Oferta](#oferta)
 	- [Categoria](#categoria)
 	- [Busca](#busca)
+	- [Carrinho](#carrinho)
 
 
 
@@ -369,7 +371,63 @@ usuario.email|string|email do usuário|teste@teste.com.br
 
 
 
+####  **Carrinho**
+
+```js
+dataLayer = [{
+	'pagina': {
+		'template': 'carrinho',
+		'protocolo': 'http:',
+		'referrer': 'www.uol.com.br',
+		'dispositivo'  : 'desktop',
+		'tipo' : '',
+		'origem_busca':'chaordic'
+
+	},
+	'produto' : {
+		'nome':'produto A',
+		'departamento':'telefonia',
+		'categoria':'celular_e_smartphone',
+		'id_produto':'12345',
+		'preco_boleto':'35.00',
+		'preco_a_vista':'34.00'
+		'marca':'samsumg',
+		'loja':'submarino'
+	},
+	'usuario': {
+		'id':'12345',
+		'tipo_login':'facebook',
+		'idade':'26',
+		'sexo':'masculino',
+		'status':'logado',
+		'email':'teste@teste.com.br'
+	}
+}]
+```
 
 
 
-
+Chave| Tipo de valor|Descrição |Exemplo
+-------- | --- | ---|--
+pagina		| objeto| 
+pagina.template	| string| Definição da Página|home
+pagina.protocolo 	| string | Protocolo de requisição|https:// ou http://
+pagina.referrer| string | referral do acesso|www.uol.com.br
+pagina.dispositivo | string | Dispositivo de acesso|mobile, desktop, tablet
+pagina.tipo| string| Qual o tipo da página quando ela for especial.| dia_dos_pais_2017, dia_das_criancas
+pagina.origem_busca| string | Se passou pela busca da Chaordic ou do Buscapé | chaordic, buscape
+produto.nome|string|Nome do produto | produto_a
+produto.departamento|string|Nome do Departamento do produto | telefonia
+produto.categoria|string| Nome da Categoria do Produto | celular_e_smarthphone
+produto.id_produto|string| número de identificação do produto | 12345
+produto.preco_boleto|string| Preço sem desconto do produto separado por ponto|53.00
+produto.preco_a_vista|string| Preço sem desconto do produto separado por ponto|52.00
+produto.marca|string| Marca do produto | samsumg
+produto.loja|string| Loja que o produto está sendo vendido| submarino
+usuario|objeto|Objeto contendo informações do usuário|
+usuario.id|string| ID atribuido ao usuario quando ele estiver logado | 3121312
+usuario.tipo_login| string| Meio que o usuário acessou o site| facebook ou google ou email
+usuario.idade| string | Idade do usuário | 26
+usuario.sexo | string | Sexo do usuário | masculino ou feminino
+usuario.status|string| Se está logado ou não| logado, nao_logado
+usuario.email|string|email do usuário|teste@teste.com.br

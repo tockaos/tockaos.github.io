@@ -27,6 +27,7 @@
 <li><a href="#oferta">Oferta</a></li>
 <li><a href="#categoria">Categoria</a></li>
 <li><a href="#busca">Busca</a></li>
+<li><a href="#carrinho">Carrinho</a></li>
 </ul>
 </li>
 </ul>
@@ -875,6 +876,181 @@ dataLayer <span class="token operator">=</span> <span class="token punctuation">
 <td>string</td>
 <td>Categoria</td>
 <td>celular_e_smartphone</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>objeto</td>
+<td>Objeto contendo informações do usuário</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://usuario.id">usuario.id</a></td>
+<td>string</td>
+<td>ID atribuido ao usuario quando ele estiver logado</td>
+<td>3121312</td>
+</tr>
+<tr>
+<td>usuario.tipo_login</td>
+<td>string</td>
+<td>Meio que o usuário acessou o site</td>
+<td>facebook ou google ou email</td>
+</tr>
+<tr>
+<td>usuario.idade</td>
+<td>string</td>
+<td>Idade do usuário</td>
+<td>26</td>
+</tr>
+<tr>
+<td>usuario.sexo</td>
+<td>string</td>
+<td>Sexo do usuário</td>
+<td>masculino ou feminino</td>
+</tr>
+<tr>
+<td>usuario.status</td>
+<td>string</td>
+<td>Se está logado ou não</td>
+<td>logado, nao_logado</td>
+</tr>
+<tr>
+<td>usuario.email</td>
+<td>string</td>
+<td>email do usuário</td>
+<td><a href="mailto:teste@teste.com.br">teste@teste.com.br</a></td>
+</tr>
+</tbody>
+</table><h4 id="carrinho"><strong>Carrinho</strong></h4>
+<pre class=" language-js"><code class="prism  language-js">dataLayer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+	<span class="token string">'pagina'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'template'</span><span class="token punctuation">:</span> <span class="token string">'carrinho'</span><span class="token punctuation">,</span>
+		<span class="token string">'protocolo'</span><span class="token punctuation">:</span> <span class="token string">'http:'</span><span class="token punctuation">,</span>
+		<span class="token string">'referrer'</span><span class="token punctuation">:</span> <span class="token string">'www.uol.com.br'</span><span class="token punctuation">,</span>
+		<span class="token string">'dispositivo'</span>  <span class="token punctuation">:</span> <span class="token string">'desktop'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo'</span> <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+		<span class="token string">'origem_busca'</span><span class="token punctuation">:</span><span class="token string">'chaordic'</span>
+
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'produto'</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'nome'</span><span class="token punctuation">:</span><span class="token string">'produto A'</span><span class="token punctuation">,</span>
+		<span class="token string">'departamento'</span><span class="token punctuation">:</span><span class="token string">'telefonia'</span><span class="token punctuation">,</span>
+		<span class="token string">'categoria'</span><span class="token punctuation">:</span><span class="token string">'celular_e_smartphone'</span><span class="token punctuation">,</span>
+		<span class="token string">'id_produto'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'preco_boleto'</span><span class="token punctuation">:</span><span class="token string">'35.00'</span><span class="token punctuation">,</span>
+		<span class="token string">'preco_a_vista'</span><span class="token punctuation">:</span><span class="token string">'34.00'</span>
+		<span class="token string">'marca'</span><span class="token punctuation">:</span><span class="token string">'samsumg'</span><span class="token punctuation">,</span>
+		<span class="token string">'loja'</span><span class="token punctuation">:</span><span class="token string">'submarino'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">'usuario'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'12345'</span><span class="token punctuation">,</span>
+		<span class="token string">'tipo_login'</span><span class="token punctuation">:</span><span class="token string">'facebook'</span><span class="token punctuation">,</span>
+		<span class="token string">'idade'</span><span class="token punctuation">:</span><span class="token string">'26'</span><span class="token punctuation">,</span>
+		<span class="token string">'sexo'</span><span class="token punctuation">:</span><span class="token string">'masculino'</span><span class="token punctuation">,</span>
+		<span class="token string">'status'</span><span class="token punctuation">:</span><span class="token string">'logado'</span><span class="token punctuation">,</span>
+		<span class="token string">'email'</span><span class="token punctuation">:</span><span class="token string">'teste@teste.com.br'</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Chave</th>
+<th>Tipo de valor</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagina</td>
+<td>objeto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pagina.template</td>
+<td>string</td>
+<td>Definição da Página</td>
+<td>home</td>
+</tr>
+<tr>
+<td>pagina.protocolo</td>
+<td>string</td>
+<td>Protocolo de requisição</td>
+<td>https:// ou http://</td>
+</tr>
+<tr>
+<td>pagina.referrer</td>
+<td>string</td>
+<td>referral do acesso</td>
+<td><a href="http://www.uol.com.br">www.uol.com.br</a></td>
+</tr>
+<tr>
+<td>pagina.dispositivo</td>
+<td>string</td>
+<td>Dispositivo de acesso</td>
+<td>mobile, desktop, tablet</td>
+</tr>
+<tr>
+<td>pagina.tipo</td>
+<td>string</td>
+<td>Qual o tipo da página quando ela for especial.</td>
+<td>dia_dos_pais_2017, dia_das_criancas</td>
+</tr>
+<tr>
+<td>pagina.origem_busca</td>
+<td>string</td>
+<td>Se passou pela busca da Chaordic ou do Buscapé</td>
+<td>chaordic, buscape</td>
+</tr>
+<tr>
+<td>produto.nome</td>
+<td>string</td>
+<td>Nome do produto</td>
+<td>produto_a</td>
+</tr>
+<tr>
+<td>produto.departamento</td>
+<td>string</td>
+<td>Nome do Departamento do produto</td>
+<td>telefonia</td>
+</tr>
+<tr>
+<td>produto.categoria</td>
+<td>string</td>
+<td>Nome da Categoria do Produto</td>
+<td>celular_e_smarthphone</td>
+</tr>
+<tr>
+<td>produto.id_produto</td>
+<td>string</td>
+<td>número de identificação do produto</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>produto.preco_boleto</td>
+<td>string</td>
+<td>Preço sem desconto do produto separado por ponto</td>
+<td>53.00</td>
+</tr>
+<tr>
+<td>produto.preco_a_vista</td>
+<td>string</td>
+<td>Preço sem desconto do produto separado por ponto</td>
+<td>52.00</td>
+</tr>
+<tr>
+<td>produto.marca</td>
+<td>string</td>
+<td>Marca do produto</td>
+<td>samsumg</td>
+</tr>
+<tr>
+<td>produto.loja</td>
+<td>string</td>
+<td>Loja que o produto está sendo vendido</td>
+<td>submarino</td>
 </tr>
 <tr>
 <td>usuario</td>

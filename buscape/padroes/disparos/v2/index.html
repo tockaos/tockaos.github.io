@@ -25,6 +25,7 @@
 <li><a href="#pushs">Pushs</a>
 <ul>
 <li><a href="#bot%C3%B5es">Botões</a></li>
+<li><a href="#carrinho">Carrinho</a></li>
 </ul>
 </li>
 </ul>
@@ -134,6 +135,16 @@ dataLayer<span class="token punctuation">.</span><span class="token function">pu
 <span class="token string">"micro_ga_selo"</span><span class="token punctuation">:</span><span class="token string">"economize"</span><span class="token punctuation">,</span>
 <span class="token string">"micro_ga_localdobotao"</span><span class="token punctuation">:</span><span class="token string">"topo"</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h4 id="carrinho"><strong>Carrinho</strong></h4>
+<p><strong>Consultar CEP</strong></p>
+<p>Ao clicar em consultar CEP, deve-se disparar:</p>
+<pre class=" language-js"><code class="prism  language-js">dataLayer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"event"</span><span class="token punctuation">:</span><span class="token string">"consultar_cep"</span><span class="token punctuation">,</span>
+<span class="token string">"cep"</span><span class="token punctuation">:</span><span class="token string">"07700-620"</span><span class="token punctuation">,</span>
+<span class="token string">"frete_valor"</span><span class="token punctuation">:</span><span class="token string">"70.00"</span><span class="token punctuation">,</span>
+<span class="token string">"carrinho_valor"</span><span class="token punctuation">:</span><span class="token string">"600.00"</span><span class="token punctuation">,</span>
+<span class="token string">"frete_quantidade_dias"</span><span class="token punctuation">:</span><span class="token string">"11"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre>
 </div>

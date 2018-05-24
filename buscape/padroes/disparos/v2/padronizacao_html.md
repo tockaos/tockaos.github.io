@@ -5,6 +5,7 @@
 
 
 
+
 ![enter image description here](http://image.buscape.com/material/buscape.png)
 
 # **Google Analytics**
@@ -20,6 +21,7 @@
 	- [Qualquer Click do Site](#qualquer-click-do-site)
 - [Pushs](#pushs)
 	- [Botões](#botões) 
+	- [Carrinho](#carrinho)
 
 
 
@@ -155,6 +157,17 @@ dataLayer.push({"event":"micro_conversao",
 
 ```
 
+#### **Carrinho**
 
+**Consultar CEP**
 
+Ao clicar em consultar CEP, deve-se disparar:
 
+```js
+dataLayer.push({"event":"consultar_cep",
+"cep":"07700-620",
+"frete_valor":"70.00",
+"carrinho_valor":"600.00",
+"frete_quantidade_dias":"11"});
+
+```

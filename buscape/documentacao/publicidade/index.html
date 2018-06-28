@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação de Publicidade</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><img src="http://image.buscape.com/material/buscape.png" alt="enter image description here"></p>
+<h1 id="publicidade"><strong>Publicidade</strong></h1>
+<h2 id="índice"><strong>Índice</strong></h2>
+<ul>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#processo-t%C3%A9cnico">Processo Técnico</a>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#c%C3%B3digo">Código</a></li>
+</ul>
+</li>
+<li><a href="#valida%C3%A7%C3%A3o">Validação</a></li>
+<li><a href="#outras-tags">Outras tags</a></li>
+</ul>
+<h3 id="objetivo"><strong>Objetivo</strong></h3>
+<p>O objetivo dessa documentação é mostrar o processo como o Buscapé insere as publicidades em seu site e como mantê-las funcionando.</p>
+<h3 id="processo-técnico"><strong>Processo Técnico</strong></h3>
+<h4 id="inicio"><strong>Inicio</strong></h4>
+<p>São duas tags que fazem requisições para a AppNexus efetuar as “bidagens” e assim termos em nosso site as publicidades.</p>
+<p>As 2 tags ativas para controlar as publicidades:</p>
+<ul>
+<li>AppNexus - AST</li>
+<li>AppNexus - Prebid<br>
+A tag AST tem sempre que ser disparada primeiro. Ela detêm de todos os códigos para cada div do site com publicidade.</li>
+</ul>
+<h4 id="código"><strong>Código</strong></h4>
+<p>É necessário ter um código para cada área do site conforme exemplo abaixo:</p>
+<pre class=" language-js"><code class="prism  language-js">apntag<span class="token punctuation">.</span><span class="token function">defineTag</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          invCode<span class="token punctuation">:</span> <span class="token string">'home_mobile_half_p1'</span><span class="token punctuation">,</span>
+          sizes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">320</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          targetId<span class="token punctuation">:</span> <span class="token string">'home_BF_half_p1'</span><span class="token punctuation">,</span>
+          disablePsa <span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Formato</th>
+<th>o que é?</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>invCode</td>
+<td>string</td>
+<td>valor que deve ser igual ao que for programado pelo time de publicidade</td>
+<td>home_mobile_half_p1</td>
+</tr>
+<tr>
+<td>sizes</td>
+<td>inteiro separado por virgula</td>
+<td>Tem que ser igual ao tamanho das divs disponibilizadas</td>
+<td>[[320,50],[300,50],[300,100]]</td>
+</tr>
+<tr>
+<td>targetId</td>
+<td>string</td>
+<td>Tem que ser igual ao id da Div</td>
+<td>home_BF_half_p1</td>
+</tr>
+<tr>
+<td>disablePsa</td>
+<td>bool</td>
+<td>Configuração para se houver alguma publicidade de graça pode ou não ser inserida</td>
+<td>true</td>
+</tr>
+</tbody>
+</table><p>Alguns invCodes dependem de uma keyword para serem inseridos:</p>
+<pre class=" language-js"><code class="prism  language-js"> apntag<span class="token punctuation">.</span><span class="token function">defineTag</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          invCode<span class="token punctuation">:</span> <span class="token string">'internas_'</span> <span class="token operator">+</span> <span class="token string">'mob_super_'</span> <span class="token operator">+</span> departamento <span class="token operator">+</span> <span class="token string">'_'</span> <span class="token operator">+</span> <span class="token string">'p1'</span><span class="token punctuation">,</span>
+          sizes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">320</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          targetId<span class="token punctuation">:</span> <span class="token string">'OAS_Position2'</span><span class="token punctuation">,</span>
+          disablePsa <span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>O que passamos em <strong>departamento</strong>  através da variavel do GTM <strong>{{appnexus_departamento}}</strong> é a categoria pai em que a página está situada. Ex:</p>
+
+<table>
+<thead>
+<tr>
+<th>Departamento</th>
+<th>Categoria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telefonia</td>
+<td>Celular e Smartphone</td>
+</tr>
+<tr>
+<td>Eletrodomésticos</td>
+<td>Fogão</td>
+</tr>
+<tr>
+<td>Alimentos e Bebidas</td>
+<td>Vinhos</td>
+</tr>
+</tbody>
+</table><p>Outra informação que toda página precisa ter é a <strong>keyword</strong>, que nada mais é do que uma palavra-chave identificando o produto. Inserimos todas as informações do breadcrumb dentro de um array e passamos através da variavel do GTM <strong>{{appnexus_keyword}}</strong>.</p>
+<h3 id="validação"><strong>Validação</strong></h3>
+<p>Para validar se a operação está correta, precisamos efetuar alguns passos:</p>
+<ol>
+<li>Abrir o  console do Chrome apertando F12</li>
+<li>Ir até a aba de Network e procurar pela palavra <strong>v3</strong></li>
+<li>Ir até a aba de Headers e abrir a chave de Tags</li>
+<li>Verificar se o <strong>code</strong> está correto.</li>
+<li>Ir até a aba <strong>Preview</strong></li>
+<li>Verificar se há campanhas para essa div ( parâmetro nobid tem que estar false para ter campanha)</li>
+</ol>
+<p><img src="http://tockaos.github.io/buscape/documentacao/publicidade/ast1.jpg" alt="enter image description here"></p>
+<p><img src="http://tockaos.github.io/buscape/documentacao/publicidade/ast2.jpg" alt="enter image description here"></p>
+<p><strong>OBS: Lembrando de validar, o InvCode, Size, targetId.</strong></p>
+<h3 id="outras-tags"><strong>Outras Tags</strong></h3>
+<p>Para termos informações suficientes para publicidade, utilizamos outras 2 tags. <strong>Tail Target e Navegg</strong> .</p>
+<p>As duas tags alimentam nossas informações em forma de Cluster. Assim temos também uma inteligência de navegação do usuário.</p>
+</div>
+</body>
+
+</html>
